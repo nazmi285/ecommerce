@@ -33,7 +33,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
 	
 	// Route::get('/product', Products::class)->name('product');
-	// Route::get('/product/create', 'HomeController@index')->name('product.create');
+	Route::get('/product/create', 'HomeController@index')->name('product.create');
 	Route::get('/explore', 'HomeController@index')->name('explore');
 	Route::get('/notification', 'HomeController@index')->name('notification');
 	Route::get('/setting', 'HomeController@index')->name('setting');
