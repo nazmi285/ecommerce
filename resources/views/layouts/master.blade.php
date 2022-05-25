@@ -37,7 +37,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light bg-gradient">
+        <nav class="navbar navbar-expand-md navbar-light fixed-top position-sticky bg-light bg-gradient">
             <div class="container col-md-8">
                 <button class="btn btn-icon" id="dropdownUser"data-bs-toggle="offcanvas" data-bs-target="#offcanvasLeft" aria-controls="offcanvasLeft"><i class="fas fa-lg fa-bars" aria-hidden="true"></i></button>
                 <div class="col" id="navbarNav">

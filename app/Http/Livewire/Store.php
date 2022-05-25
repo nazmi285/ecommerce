@@ -10,7 +10,13 @@ class Store extends Component
     public $count_cart = 0;
 
 
-	public function index()
+	public function addToCart()
+    {
+        $this->count_cart++;
+        dd($this->count_cart);
+    }
+
+    public function index()
     {
         $products = Product::orderBy('created_at','desc')->get();
         return $products;

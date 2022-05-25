@@ -14,7 +14,7 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
     
     <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="dns-prefetch" href="//{{-- fonts --}}.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
     <link rel="manifest" href="/manifest.json">
@@ -40,14 +40,17 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light fixed-top bg-white shadow-sm">
             <div class="container col-md-8">
-                <a class="navbar-brand float-center" href="{{ url('/home') }}">
-                    <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
-                </a>
+                <div class="navbar-brand float-center">
+                    @if(Auth::guard('web')->check())
+                        <a class="" href="{{ url('/home') }}">
+                            <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+                        </a>
+                    @endif
+                </div>
                 <div class="d-flex">
-                    <a href="#" class="d-block link-dark text-decoration" id="dropdownUser1"data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-                        <i class="fas fa-lg fa-shopping-cart position-relative" aria-hidden="true">
-                            <span class="position-absolute top-0 start-100 translate-middle badge border border-light rounded-circle bg-danger p-1"><span class="visually-hidden">1</span></span>
-                        </i>
+
+                    <a href="{{route('store.cart')}}" class="d-block link-dark text-decoration">
+                        <livewire:store.trolley />
                         {{-- <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle"> --}}
                     </a>
                 </div>

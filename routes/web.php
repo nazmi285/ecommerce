@@ -26,6 +26,10 @@ Route::get('/store',function(){
 	return view('public');
 })->name('store');
 
+Route::get('/store/cart',function(){
+	return view('public');
+})->name('store.cart');
+
 
 Route::group(['middleware' => ['auth', 'verified']], function () {
 	Route::get('/home', 'HomeController@index')->name('home');

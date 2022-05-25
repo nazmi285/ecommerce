@@ -25,7 +25,16 @@
 		    					<span class="text-muted">{{$product->name ? $product->name : ''}}</span>
 		    				</div>
 		    				<div class="flex-shrink-1">
-			    				<button class="btn px-2 m-2"><i class="fas fa-lg fa-ellipsis-h"></i></button>
+		    					<div class="dropdown">
+		    						<button class="btn px-2 m-2" type="button" id="btnMoreAction_{{$key}}" data-bs-toggle="dropdown" aria-expanded="false">
+		    							<i class="fas fa-lg fa-ellipsis-h"></i>
+		    						</button>
+		    						<ul class="dropdown-menu" style="right:-40px" aria-labelledby="btnMoreAction_{{$key}}">
+		    							<li><a class="dropdown-item" href="#">Action</a></li>
+		    							<li><a class="dropdown-item" href="#">Another action</a></li>
+		    							<li><a class="dropdown-item" href="#">Something else here</a></li>
+		    						</ul>
+		    					</div>
 		    				</div>
 		    			</div>
 					{{-- </div> --}}

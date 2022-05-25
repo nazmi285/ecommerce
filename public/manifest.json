@@ -1,6 +1,6 @@
 {
-  "name": "MyApp",
-  "short_name": "Hello",
+  "name": "simplycommerce",
+  "short_name": "simplycommerce",
   "icons": [{
     "src": "images/hello-icon-128.png",
       "sizes": "128x128",
@@ -27,7 +27,7 @@
       "type": "image/png"
     }],
   "lang": "en-US",
-  "start_url": "https://simplycommerce.herokuapp.com/home",
+  "start_url": "http://localhost:8000/home",
   "display": "Standalone",
   "background_color": "white",
   "theme_color": "white"

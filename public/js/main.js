@@ -106,25 +106,25 @@ window.onload = () => {
 			longitude: position.coords.longitude,
 			latitude: position.coords.latitude
 		}
-		if (status == google.maps.GeocoderStatus.OK) {
-		    console.log(results)
-		    if (results[1]) {
-		         //formatted address
-		         alert(results[0].formatted_address)
-		        //find country name
-	            for (var i=0; i<results[0].address_components.length; i++) {
-		            for (var b=0;b<results[0].address_components[i].types.length;b++) {
+		// if (status == google.maps.GeocoderStatus.OK) {
+		//     console.log(results)
+		//     if (results[1]) {
+		//          //formatted address
+		//          alert(results[0].formatted_address)
+		//         //find country name
+	 //            for (var i=0; i<results[0].address_components.length; i++) {
+		//             for (var b=0;b<results[0].address_components[i].types.length;b++) {
 
-		            //there are different types that might hold a city admin_area_lvl_1 usually does in come cases looking for sublocality type will be more appropriate
-		                if (results[0].address_components[i].types[b] == "administrative_area_level_1") {
-		                    //this is the object you are looking for
-		                    city= results[0].address_components[i];
-		                    break;
-		                }
-		            }
-	        	}
-	        }
-	    }
+		//             //there are different types that might hold a city admin_area_lvl_1 usually does in come cases looking for sublocality type will be more appropriate
+		//                 if (results[0].address_components[i].types[b] == "administrative_area_level_1") {
+		//                     //this is the object you are looking for
+		//                     city= results[0].address_components[i];
+		//                     break;
+		//                 }
+		//             }
+	 //        	}
+	 //        }
+	 //    }
 	    // https://us1.locationiq.com/v1/reverse.php?key=pk.2288cddc3fdbc2739738067f403723d7&lat=3.1684&lon=101.7033%20lng&format=json //locationIQ
 		// console.log(location);
 		// showInMap(position);
@@ -148,4 +148,21 @@ window.onload = () => {
     channel.bind('my-event', function(data) {
         displayNotification();
     });
+
+    // Initialize deferredPrompt for use later to show browser install prompt.
+	let deferredPrompt;
+
+	window.addEventListener('beforeinstallprompt', (e) => {
+	  // Prevent the mini-infobar from appearing on mobile
+	  e.preventDefault();
+	  // Stash the event so it can be triggered later.
+	  deferredPrompt = e;
+	  // Update UI notify the user they can install the PWA
+	  // showInstallPromotion();
+	  // Optionally, send analytics event that PWA install promo was shown.
+	  console.log(`'beforeinstallprompt' event was fired.`);
+	});
 }
+
+
+
