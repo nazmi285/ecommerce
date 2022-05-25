@@ -6,20 +6,21 @@ use Livewire\Component;
 
 class Cart extends Component
 {
-    public $count_cart = 0;
-
-    protected $listeners = ['productAdded' => 'countCart'];
+    public $count_cart = 0,$cartItems=[];
 
     public function mount()
     {
-        if(session()->has('count_cart')){
-            $this->count_cart = session()->get('count_cart');
+        if(session()->has('cartItems')){
+            $this->cartItems = session()->get('cartItems');
         }
     }
 
-    public function countCart()
+    public function deleteFromCart($id)
     {
-        $this->count_cart = session()->get('count_cart');
+        unset($this->cartItems[$id]);
+        session()->put('cartItems', $this->cartItems);
+
+        $this->emit('productAdded');    
     }
 
     public function render()

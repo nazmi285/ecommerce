@@ -6,7 +6,7 @@ use Livewire\Component;
 
 class Detail extends Component
 {
-    public $product,$name,$description,$price,$promoable,$promo_price,$stockable,$quantity,$weight,$count_cart;
+    public $product,$name,$description,$price,$promoable,$promo_price,$stockable,$quantity,$weight,$count_cart,$cartItems=[];
 
     public function mount($product)
     {
@@ -18,15 +18,32 @@ class Detail extends Component
         $this->stockable = $product->stockable;
         $this->quantity = $product->quantity;
         $this->weight = $product->weight;
+
+        
     }
 
-    public function addToCart()
+    public function addToCart($id)
     {
-        if(session()->has('count_cart')){
-            $count = session()->get('count_cart')+1;
-            session()->put('count_cart',$count);
-        }else{
-            session()->put('count_cart',1);
+        // if(session()->has('count_cart')){
+        //     $count = session()->get('count_cart')+1;
+        //     session()->put('count_cart',$count);
+        // }else{
+        //     session()->put('count_cart',1);
+        // }
+
+        // session()->forget('cartItems');
+        // dd(session()->get('cartItems'),$id);
+        $this->cartItems = session()->get('cartItems');
+
+        if(isset($this->cartItems[$id])){
+            $this->cartItems[$id]['quantity']++;
+            
+            session()->put('cartItems',$this->cartItems);
+        } else {
+            $this->cartItems[$id]=[
+                'quantity' => 1,
+            ];
+            session()->put('cartItems',$this->cartItems);
         }
 
         $this->emit('productAdded');

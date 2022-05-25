@@ -7,19 +7,20 @@ use Livewire\Component;
 
 class Store extends Component
 {
-    public $count_cart = 0;
+    public $perPage = 6;
 
+    protected $listeners = [
+        'load-more' => 'loadMore'
+    ];
 
-	public function addToCart()
+    public function loadMore()
     {
-        $this->count_cart++;
-        dd($this->count_cart);
+        $this->perPage = $this->perPage + 3;
     }
 
     public function index()
     {
-        $products = Product::orderBy('created_at','desc')->get();
-        return $products;
+        return Product::orderBy('created_at','desc')->paginate($this->perPage);
     }
     
     public function render()

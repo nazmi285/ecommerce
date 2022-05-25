@@ -12,14 +12,15 @@ class Trolley extends Component
 
     public function mount()
     {
-        if(session()->has('count_cart')){
-            $this->count_cart = session()->get('count_cart');
+        if(session()->has('cartItems')){
+            $this->count_cart = count(session()->get('cartItems'));
         }
     }
 
     public function countCart()
     {
-        $this->count_cart = session()->get('count_cart');
+        $this->count_cart = count(session()->get('cartItems'));
+        // $this->count_cart = session()->get('count_cart');
     }
     
     public function render()

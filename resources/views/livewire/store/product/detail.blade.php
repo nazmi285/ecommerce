@@ -58,7 +58,7 @@
                 </div>
                 <div class="modal-footer">
                     <span class="">RM 89</span>
-                    <a href="#" class="btn btn-primary" wire:click="addToCart"><i class="fa fa-shopping-cart"></i> Add To Cart </a>
+                    <a href="#" class="btn btn-primary" wire:click="addToCart({{$product->id}})"><i class="fa fa-shopping-cart"></i> Add To Cart </a>
                 </div>
             </form>
         </div>

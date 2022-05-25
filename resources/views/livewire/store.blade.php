@@ -24,14 +24,23 @@
 			<a href="#" class="product-sm mb-3 text-decoration-none" data-bs-toggle="modal" data-bs-target="#productDetailModal_{{$product->id}}">
 				<div class="img-wrap"> <img src="{{asset('images/items/item.jpg')}}"> </div>
 				<div class="text-wrap">
-					<p class="title text-truncate">{{$product->name}}</p>
+					<p class="text-truncate fw-bold">{{$product->name}}</p>
 					<div class="price">RM{{number_format($product->price ? $product->price : 0,2)}}</div> <!-- price-wrap.// -->
 				</div>
 			</a>
-		<livewire:store.product.detail :product="$product" :wire:key="$product->id">
+			<livewire:store.product.detail :product="$product" :wire:key="$product->id">
 	    </div>
 	    @empty
 	    @endforelse
 	   
 	</div>
 </div>
+@push('scripts')
+<script type="text/javascript">
+      window.onscroll = function(ev) {
+          if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+              window.livewire.emit('load-more');
+          }
+      };
+</script>
+@endpush

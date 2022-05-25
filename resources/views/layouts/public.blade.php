@@ -40,13 +40,14 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light fixed-top bg-white shadow-sm">
             <div class="container col-md-8">
-                <div class="navbar-brand float-center">
-                    @if(Auth::guard('web')->check())
-                        <a class="" href="{{ url('/home') }}">
-                            <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
-                        </a>
-                    @endif
-                </div>
+                @if(Auth::guard('web')->check())
+                    <a class="btn btn-icon" href="{{ url('/home') }}">
+                        <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+                    </a>
+                @endif
+                <a class="navbar-brand float-center" href="{{ url('/store') }}">
+                    {{ config('app.name', 'Laravel') }}
+                </a>
                 <div class="d-flex">
 
                     <a href="{{route('store.cart')}}" class="d-block link-dark text-decoration">
