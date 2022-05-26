@@ -7,6 +7,8 @@ use Carbon\Carbon;
 
 class Dashboard extends Component
 {       
+    protected $listeners = ['newOrder' => 'index'];
+
 	public function index()
     {
         $orders = Order::orderBy('created_at','desc')->get();

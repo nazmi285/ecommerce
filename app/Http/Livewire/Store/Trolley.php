@@ -19,7 +19,11 @@ class Trolley extends Component
 
     public function countCart()
     {
-        $this->count_cart = count(session()->get('cartItems'));
+        if(session()->has('cartItems')){
+            $this->count_cart = count(session()->get('cartItems'));
+        }else{
+            $this->count_cart = 0;
+        }
         // $this->count_cart = session()->get('count_cart');
     }
     

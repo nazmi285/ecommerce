@@ -1,6 +1,10 @@
 <div>
     
-            
+    @if (session()->has('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif    
     {{-- <ol class="list-group list-group-flush">
         <li class="list-group-item d-flex justify-content-between align-items-start bg-transparent">
             <img src="{{asset('images/items/item.jpg')}}" class="rounded img-md">
@@ -27,10 +31,22 @@
             <span class="badge bg-primary rounded-pill">14</span>
         </li>
     </ol> --}}
+    <div class="col d-flex justify-content-between mb-3">
+        <div class="form-check ms-1 mt-1">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+          <label class="form-check-label" for="flexCheckDefault"> Select All </label>
+        </div>
+        <button type="button" onclick="confirm('Are you sure');" class="mr-2 btn btn-light" wire:click="clearCart"><i class="fa fa-trash me-2"></i><label class="form-check-label"> Delete All </label></button>
+    </div>
     <section class="section-products">
         @forelse($cartItems as $key => $item)
         <figure class="itemside item-cart">
-            <div class="aside"><img src="{{asset('images/items/item.jpg')}}" class="rounded img-md"></div>
+            <div class="aside position-relative">
+                <div class="position-absolute top-0 start-0">
+                    <input class="form-check-input ms-1 mt-1 border-0" type="checkbox" id="checkboxNoLabel" value="" aria-label="...">
+                </div>
+                <img src="{{asset('images/items/item.jpg')}}" class="rounded img-md">
+            </div>
             <figcaption class="info">
                 <div class="fw-bold">Great product name</div>
                 <span class="price">RM44.20</span>
@@ -50,6 +66,10 @@
         @empty
         @endforelse
     </section> 
+
+    <div class="col-12">
+        <button type="submit" class="w-100 btn btn-primary btn-lg" wire:click="confirmOrder()">Confirm Order</button>
+    </div>
 
     <div class="position-absolute top-50 start-50 translate-middle" wire:loading>
         <div class="spinner-border text-secondary" role="status">
