@@ -41,7 +41,7 @@
         <nav class="navbar navbar-expand-md navbar-light fixed-top bg-white shadow-sm">
             <div class="container col-md-8">
                 @if(Auth::guard('web')->check())
-                    <a class="btn btn-icon" href="{{ url('/home') }}">
+                    <a class="btn" href="{{ url('/home') }}">
                         <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
                     </a>
                 @endif
@@ -57,7 +57,10 @@
                 </div>
             </div>
         </nav>
-        <main class="py-4 mt-5">
+        <main class="py-4 mt-5 position-relative">
+
+            
+
             <div class="mb-3" id="mapholder"></div>
             @yield('content')
         </main>
@@ -68,6 +71,18 @@
     @livewireScripts
 
     @stack('scripts')
+    <script>
+        // window.onbeforeunload = function (evt) {
+        //   var message = 'Are you sure you want to leave?';
+        //   if (typeof evt == 'undefined') {
+        //     evt = window.event;
+        //   }
+        //   if (evt) {
+        //     evt.returnValue = message;
+        //   }
+        //   return message;
+        // }
+    </script>
 
 </body>
 </html>

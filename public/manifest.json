@@ -27,7 +27,7 @@
       "type": "image/png"
     }],
   "lang": "en-US",
-  "start_url": "http://localhost:8000/home",
+  "start_url": "https://simplycommerce.herokuapp.com/home",
   "display": "Standalone",
   "background_color": "white",
   "theme_color": "white"
