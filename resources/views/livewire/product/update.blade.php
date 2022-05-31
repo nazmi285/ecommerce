@@ -13,6 +13,24 @@
                         </div>
                     @endif
 					<div class="form-group row justify-content-center">
+						@if (isset($photo))
+					        <div class="col-6 col-md-6 mb-3">
+						        <img class="img-fluid float-start" src="{{ $photo->temporaryUrl() }}">
+						    </div>
+						@else
+							<div class="col-6 col-md-6 mb-3">
+								@if(!empty($product->image_url))
+									@if(Storage::disk('public')->exists($product->image_url))
+						        		<img class="img-fluid float-start" src="{{  asset('storage/'.$product->image_url) }}">
+						        	@endif
+						   		@endif
+						    </div>
+					    @endif
+						<div class="col-12 mb-3">
+							<label for="photo">Photo </label>
+							<input type="file" class="form-control text-primary" wire:model="photo" id="photo">
+							@error('photo') <span class="text-danger">{{ $message }}</span> @enderror
+						</div>
 						<div class="col-12 mb-3">
 							<label for="name">Name</label>
 							<input type="text" class="form-control text-primary" wire:model="name" placeholder="e.g.Cookies">

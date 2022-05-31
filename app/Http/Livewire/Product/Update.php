@@ -2,13 +2,22 @@
 
 namespace App\Http\Livewire\Product;
 
-use Livewire\Component;
 use App\Models\Product;
+use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class Update extends Component
 {
-	public $product,$name,$description,$price,$promoable,$promo_price,$stockable,$quantity,$weight;
+    use WithFileUploads;
 
+	public $product,$name,$description,$price,$promoable,$promo_price,$stockable,$quantity,$weight,$photo;
+
+    public function updatedPhoto()
+    {
+        $this->validate([
+            'photo' => 'image|max:1024',
+        ]);
+    }
 
     public function update()
     {
@@ -18,6 +27,9 @@ class Update extends Component
             'price' => 'required',
         ]);
 
+        $photo_url = $this->photo->store('product/photos','public');
+
+        $this->product->image_url = isset($photo_url)?$photo_url:null;
         $this->product->name = $this->name;
         $this->product->description = $this->description;
         $this->product->price = $this->price;

@@ -2,13 +2,22 @@
 
 namespace App\Http\Livewire\Product;
 
-use Livewire\Component;
 use App\Models\Product;
+use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class Create extends Component
 {
+    use WithFileUploads;
+
 	public $form;
 
+    public function updatedPhoto()
+    {
+        $this->validate([
+            'form.photo' => 'image|max:1024',
+        ]);
+    }
 	public function store()
     {
         $validatedData = $this->validate([
@@ -21,7 +30,10 @@ class Create extends Component
             'form.weight' => '',
         ]);
 
+        $photo_url = $this->form['photo']->store('product/photos','public');
+
         $product = Product::productNo();
+        $product->image_url = isset($photo_url)?$photo_url:null;
         $product->name = $this->form['name'];
         $product->description = $this->form['description'];
         $product->price = $this->form['price'];

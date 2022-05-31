@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Store\Product;
 
+use App\Models\Product;
 use Livewire\Component;
 
 class Detail extends Component
@@ -33,6 +34,8 @@ class Detail extends Component
 
         // session()->forget('cartItems');
         // dd(session()->get('cartItems'),$id);
+        $product = Product::find($id);
+
         $this->cartItems = session()->get('cartItems');
 
         if(isset($this->cartItems[$id])){
@@ -42,6 +45,9 @@ class Detail extends Component
         } else {
             $this->cartItems[$id]=[
                 'quantity' => 1,
+                'name' => $product->name,
+                'price' => $product->price,
+                'photo' => $product->image_url,
             ];
             session()->put('cartItems',$this->cartItems);
         }

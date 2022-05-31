@@ -8,7 +8,7 @@
 				<button type="button" class="btn btn-icon rounded-3"><i class="fa fa-th-list" aria-hidden="true"></i></button>
 			</div>
 		</div> --}}
-		<div class="col-6 col-sm-6 col-md-4">
+		{{-- <div class="col-6 col-sm-6 col-md-4">
 			<a href="#" class="product-sm mb-3 text-decoration-none position-relative" data-bs-toggle="modal" data-bs-target="#exampleModal">
 
 				<div class="img-wrap"> <img src="{{asset('images/items/item.jpg')}}"> </div>
@@ -18,11 +18,17 @@
 					<div class="price">RM17.00</div> <!-- price-wrap.// -->
 				</div>
 			</a>
-		</div>
+		</div> --}}
 		@forelse($products as $product)
 		<div class="col-6 col-sm-6 col-md-4">
 			<a href="#" class="product-sm mb-3 text-decoration-none" data-bs-toggle="modal" data-bs-target="#productDetailModal_{{$product->id}}">
-				<div class="img-wrap"> <img src="{{asset('images/items/item.jpg')}}"> </div>
+				<div class="img-wrap"> 
+					@if(Storage::disk('public')->exists($product->image_url))
+						<img src="{{ asset('storage/'.$product->image_url) }}">
+					@else
+						<img src="{{asset('images/items/item.jpg')}}">
+					@endif	 
+				</div>
 				<div class="text-wrap">
 					<p class="text-truncate fw-bold">{{$product->name}}</p>
 					<div class="price">RM{{number_format($product->price ? $product->price : 0,2)}}</div> <!-- price-wrap.// -->

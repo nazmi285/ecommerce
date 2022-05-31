@@ -43,13 +43,18 @@
         <figure class="itemside item-cart">
             <div class="aside position-relative">
                 <div class="position-absolute top-0 start-0">
-                    <input class="form-check-input ms-1 mt-1 border-0" type="checkbox" id="checkboxNoLabel" value="" aria-label="...">
+                    <input class="form-check-input ms-1 mt-1 " type="checkbox" id="checkboxNoLabel" value="" aria-label="...">
                 </div>
-                <img src="{{asset('images/items/item.jpg')}}" class="rounded img-md">
+                @if(Storage::disk('public')->exists($item['photo']))
+                    <img src="{{ asset('storage/'.$item['photo']) }}" class="rounded img-md">
+                @else
+                    <img src="{{asset('images/items/item.jpg')}}" class="rounded img-md">
+                @endif  
+                {{-- <img src="{{asset('images/items/item.jpg')}}" class="rounded img-md"> --}}
             </div>
             <figcaption class="info">
-                <div class="fw-bold">Great product name</div>
-                <span class="price">RM44.20</span>
+                <div class="fw-bold">{{ $item['name'] }}</div>
+                <span class="price">RM{{ number_format($item['price'],2) }}</span>
                 <div class="form-inline mt-2">
                     <button type="button" onclick="confirm('Are you sure');" class="mr-2 btn-sm btn btn-light" wire:click="deleteFromCart({{$key}})"> <i class="fa fa-trash"></i>  Delete </button>
                     {{-- <a href="#" onclick="confirm('Are you sure');" class="mr-2 btn-sm btn btn-light"> <i class="fa fa-trash"></i>  Delete </a>

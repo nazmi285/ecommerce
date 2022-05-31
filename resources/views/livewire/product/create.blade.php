@@ -13,6 +13,20 @@
                         </div>
                     @endif
 					<div class="form-group row justify-content-center">
+						@if (isset($form['photo']))
+					        <div class="col-4 float-start mb-3">
+						        <img class="img-fluid" src="{{ $form['photo']->temporaryUrl() }}">
+						    </div>
+						@else
+							<div class="col-4 float-start mb-3">
+						        <img class="img-fluid" src="{{ asset('images/items/item.jpg') }}">
+						    </div>
+					    @endif
+						<div class="col-12 mb-3">
+							<label for="photo">Photo</label>
+							<input type="file" class="form-control text-primary" wire:model="form.photo" id="photo">
+							@error('form.photo') <span class="text-danger">{{ $message }}</span> @enderror
+						</div>
 						<div class="col-12 mb-3">
 							<label for="name">Name</label>
 							<input type="text" class="form-control text-primary" wire:model="form.name" id="name" value="{{old('name')}}" placeholder="e.g.Cookies">

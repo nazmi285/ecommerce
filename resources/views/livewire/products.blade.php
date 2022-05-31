@@ -19,7 +19,11 @@
 		    		{{-- <div class="card-body"> --}}
 		    			<div class="d-flex">
 		    				<div class="flex-shrink-0" data-bs-toggle="modal" data-bs-target="#updateModal_{{$product->id}}">
-		    					<img src="{{ asset('images/items/item.jpg') }}" class="img-fluid rounded-start" alt="..." style="width: 102px; height:102px; object-fit:cover;">
+		    					@if(Storage::disk('public')->exists($product->image_url))
+		    						<img src="{{ asset('storage/'.$product->image_url) }}" class="img-fluid rounded-start" alt="..." style="width: 102px; height:102px; object-fit:cover;">
+		    					@else
+		    						<img src="{{ asset('images/items/item.jpg') }}" class="img-fluid rounded-start" alt="..." style="width: 102px; height:102px; object-fit:cover;">
+		    					@endif
 		    				</div>
 		    				<div class="flex-grow-1 ms-3 py-2" data-bs-toggle="modal" data-bs-target="#updateModal_{{$product->id}}">
 		    					<span class="text-muted">{{$product->name ? $product->name : ''}}</span>
