@@ -19,11 +19,12 @@
 						    </div>
 						@else
 							<div class="col-6 col-md-6 mb-3">
-								@if(!empty($product->image_url))
+								{{-- @if(!empty($product->image_url))
 									@if(Storage::disk('public')->exists($product->image_url))
 						        		<img class="img-fluid float-start" src="{{  asset('storage/'.$product->image_url) }}">
 						        	@endif
-						   		@endif
+						   		@endif --}}
+						   		<img src="{{ asset('images/items/item.jpg') }}">
 						    </div>
 					    @endif
 						<div class="col-12 mb-3">
