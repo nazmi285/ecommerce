@@ -7,7 +7,7 @@ use Livewire\Component;
 
 class Store extends Component
 {
-    public $perPage = 6;
+    public $perPage = 10;
 
     protected $listeners = [
         'load-more' => 'loadMore'
