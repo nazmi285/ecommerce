@@ -48,7 +48,11 @@
                 </a> --}}
                 <div class="d-flex">
                     <a href="#" class="d-block link-dark text-decoration" id="dropdownUser1"data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-                        <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+                        @if(isset(Auth::user()->image_url))
+                            <img src="{{asset('storage/'.Auth::user()->image_url)}}" alt="mdo" width="32" height="32" class="rounded-circle">
+                        @else
+                            <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+                        @endif
                     </a>
                     <!-- <div class="nav-item dropdown">
 

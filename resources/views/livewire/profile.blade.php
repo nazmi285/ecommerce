@@ -10,9 +10,19 @@
 								<p>Update your account's profile information and email address.</p>
 							</div>
 							<div class="col-12 col-md-6 mb-3">
-								<form>
+								<form wire:submit.prevent="update">
 									<div class="mb-3">
-										<img class="img-fluid rounded-circle" src="https://github.com/mdo.png" width="78px" alt="...">
+										@if (isset($photo))
+											<img class="img-fluid rounded-circle" src="{{ $photo->temporaryUrl() }}" width="78px" alt="...">
+										@else
+											@if(isset($user->image_url))
+												<img class="img-fluid rounded-circle" src="{{asset('storage/'.$user->image_url)}}" width="78px" alt="...">
+											@else
+												<img class="img-fluid rounded-circle" src="https://github.com/mdo.png" width="78px" alt="...">
+											@endif
+										@endif
+										<input type="file" class="form-control mt-3" wire:model="photo" id="photo">
+										@error('photo') <span class="text-danger">{{ $message }}</span> @enderror
 									</div>
 									<div class="mb-3">
 										<label for="full_name" class="form-label">Name</label>

@@ -3,20 +3,25 @@
 namespace App\Http\Livewire;
 use Auth;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class Profile extends Component
 {
+	use WithFileUploads;
+
+	public $photo;
 
 	public function index()
 	{
-		$user = Auth::user();
-
-		return $user;
+		return Auth::user();
 	}
 
-
-
-    
+	public function update()
+	{
+		$user = Auth::user();
+		$user->image_url = $this->photo->store('product/photos','public');
+		$user->save();
+	}
 
     public function render()
     {

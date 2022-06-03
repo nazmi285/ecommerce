@@ -42,7 +42,11 @@
             <div class="container col-md-8">
                 @if(Auth::guard('web')->check())
                     <a class="btn" href="{{ url('/home') }}">
-                        <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+                        @if(isset(Auth::user()->image_url))
+                            <img src="{{asset('storage/'.Auth::user()->image_url)}}" alt="mdo" width="32" height="32" class="rounded-circle">
+                        @else
+                            <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+                        @endif
                     </a>
                 @endif
                 <a class="navbar-brand float-center" href="{{ url('/store') }}">

@@ -27,7 +27,7 @@ class Update extends Component
             'price' => 'required',
         ]);
 
-        $photo_url = $this->photo->store('product/photos','public');
+        $photo_url = $this->photo->store('photos','public');
 
         $this->product->image_url = isset($photo_url)?$photo_url:null;
         $this->product->name = $this->name;
