@@ -22,14 +22,19 @@ Auth::routes(['verify' => true]);
 Route::get('auth/google', 'SocialController@redirectToGoogle');
 Route::get('auth/google/callback', 'SocialController@googleCallback');
 
-Route::get('/store',function(){
-	return view('public');
-})->name('store');
+Route::prefix('store')->group(function () {
+	Route::get('/',function(){
+		return view('public');
+	})->name('store');
 
-Route::get('/store/cart',function(){
-	return view('public');
-})->name('store.cart');
+	Route::get('/cart',function(){
+		return view('public');
+	})->name('store.cart');
 
+	Route::get('/order',function(){
+		return view('public');
+	})->name('store.order');
+});
 
 Route::group(['middleware' => ['auth', 'verified']], function () {
 	Route::get('/home', 'HomeController@index')->name('home');

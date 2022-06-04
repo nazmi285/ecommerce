@@ -8,6 +8,8 @@
                 <livewire:store />
             @elseif (Route::currentRouteName()=="store.cart")
                 <livewire:store.cart />
+            @elseif (Route::currentRouteName()=="store.order")
+                <livewire:store.order />
             @endif
         </div>
     </div>

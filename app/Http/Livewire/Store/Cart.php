@@ -76,6 +76,10 @@ class Cart extends Component
         session()->flash('success', 'Your order has been confirm. Please wait..');
         
         $this->emit('newOrder');  
+
+        $this->clearCart();
+
+        return redirect()->route('store.order');
     }
 
     public function render()
