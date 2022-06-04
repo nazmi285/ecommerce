@@ -182,8 +182,13 @@ function verifyId($id = null, $model = null, $column = null)
 
 function getStoreLink()
 {  
+    if(env('APP_DOMAIN') == 'simplycommerce.herokuapp.com'){
+        $subdomain =  '';
+    }else{
+       $subdomain =  'nazmi.'; 
+    }
     $domain = env('APP_DOMAIN', 'ecommerce.org');
-    $subdomain =  'nazmi.';
+    
     $protocol = isset($_SERVER["HTTPS"]) ? 'https' : 'http';
     $store_link = $protocol.'://'.$subdomain.$domain;
         
