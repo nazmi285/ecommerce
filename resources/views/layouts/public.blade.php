@@ -54,11 +54,7 @@
                     {{ config('app.name', 'Laravel') }}
                 </a>
                 <div class="d-flex">
-
-                    <a href="{{route('store.cart')}}" class="d-block link-dark text-decoration">
-                        <livewire:store.trolley />
-                        {{-- <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle"> --}}
-                    </a>
+                    <livewire:store.trolley />
                 </div>
             </div>
         </nav>

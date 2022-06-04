@@ -182,26 +182,11 @@ function verifyId($id = null, $model = null, $column = null)
 
 function getStoreLink()
 {  
-    $store_link = '';
-    $user = Auth::user();
-    if($user){
-        $merchant = $user->merchant;
-        if($merchant){
-            $merchant_name = $merchant->name ? str_replace(' ','-',$merchant->name) :'';
-            $store_link = url('/store/'.$merchant_name);
-            
-            $tenant = \App\Tenant::where('merchant_id',$merchant->id)->first();
-
-            if($tenant){
-                $domain = env('APP_DOMAIN');
-                if(!empty($tenant->subdomain)){
-                    $subdomain =  $tenant->subdomain.'.';
-                    $protocol = isset($_SERVER["HTTPS"]) ? 'https' : 'http';
-                    $store_link = $protocol.'://'.$subdomain.$domain;
-                }
-            }
-        }
-    }
+    $domain = env('APP_DOMAIN', 'ecommerce.org');
+    $subdomain =  'nazmi.';
+    $protocol = isset($_SERVER["HTTPS"]) ? 'https' : 'http';
+    $store_link = $protocol.'://'.$subdomain.$domain;
+        
     return $store_link;
 }
 

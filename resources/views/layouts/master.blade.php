@@ -122,7 +122,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('store')}}" class="nav-link py-3 px-1">
+                            <a href="{{getStoreLink().'/store'}}" class="nav-link py-3 px-1">
                                 <i class="fas fa-lg fa-store"></i>
                                 {{-- <br>
                                 Store --}}

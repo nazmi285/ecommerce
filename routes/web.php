@@ -22,18 +22,21 @@ Auth::routes(['verify' => true]);
 Route::get('auth/google', 'SocialController@redirectToGoogle');
 Route::get('auth/google/callback', 'SocialController@googleCallback');
 
-Route::prefix('store')->group(function () {
-	Route::get('/',function(){
-		return view('public');
-	})->name('store');
+Route::domain('{subdomain}.'.env('APP_DOMAIN', 'ecommerce.org'))->group(function () {
 
-	Route::get('/cart',function(){
-		return view('public');
-	})->name('store.cart');
+	Route::prefix('store')->group(function () {
+		Route::get('/',function(){
+			return view('public');
+		})->name('store');
 
-	Route::get('/order',function(){
-		return view('public');
-	})->name('store.order');
+		Route::get('/cart',function(){
+			return view('public');
+		})->name('store.cart');
+
+		Route::get('/order',function(){
+			return view('public');
+		})->name('store.order');
+	});
 });
 
 Route::group(['middleware' => ['auth', 'verified']], function () {

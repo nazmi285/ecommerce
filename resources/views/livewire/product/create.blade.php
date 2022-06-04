@@ -53,6 +53,7 @@
 									<label class="custom-control-label" for="promoable">Check this to set your promotional price</label>
 								</div>
 							</label>
+							 {{-- {{isset($form['promo_price'])?'':'d-none'}} --}}
 							<div class="input-group" id="promo-field">
 								<span class="input-group-text bg-light" id="promo_price">RM</span>
 								<input type="text" class="form-control text-primary border-start-0 text-end format_money" wire:model="form.promo_price" id="promo_price" value="{{old('promo_price')}}" oninput="validate(this)" placeholder="0.00" maxlength="7">
