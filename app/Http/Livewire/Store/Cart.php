@@ -8,7 +8,10 @@ use Livewire\Component;
 
 class Cart extends Component
 {
-    public $count_cart = 0,$cartItems=[];
+    public $count_cart = 0;
+    public $selectAll = false;
+    public $selectItem = [];
+    public $cartItems = [];
 
     protected $listeners = ['refreshComponent' => '$refresh'];
 
@@ -17,6 +20,21 @@ class Cart extends Component
         if(session()->has('cartItems')){
             $this->cartItems = session()->get('cartItems');
         }
+    }
+
+    public function updatedSelectAll($value)
+    {
+        if($value){
+
+            $this->selectItem = $this->cartItems;
+        }else{
+            $this->selectItem = [];
+        }
+        // dd("selectAll");
+        // unset($this->cartItems[$id]);
+        // session()->put('cartItems', $this->cartItems);
+
+        // $this->emit('productAdded');    
     }
 
     public function deleteFromCart($id)

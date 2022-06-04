@@ -1,5 +1,4 @@
 <div>
-    
     @if (session()->has('success'))
         <div class="alert alert-success">
             {{ session('success') }}
@@ -33,8 +32,8 @@
     </ol> --}}
     <div class="col d-flex justify-content-between mb-3">
         <div class="form-check ms-1 mt-1">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-          <label class="form-check-label" for="flexCheckDefault"> Select All </label>
+          <input class="form-check-input" type="checkbox" wire:model="selectAll" id="selectAllItem">
+          <label class="form-check-label" for="selectAllItem"> Select All </label>
         </div>
         <button type="button" onclick="confirm('Are you sure');" class="mr-2 btn btn-light" wire:click="clearCart"><i class="fa fa-trash me-2"></i><label class="form-check-label"> Delete All </label></button>
     </div>
@@ -43,7 +42,7 @@
         <figure class="itemside item-cart">
             <div class="aside position-relative">
                 <div class="position-absolute top-0 start-0">
-                    <input class="form-check-input ms-1 mt-1 " type="checkbox" id="checkboxNoLabel" value="" aria-label="...">
+                    <input class="form-check-input ms-1 mt-1 " type="checkbox" wire:model="selectItem" value="{{$key}}">
                 </div>
                 @if(Storage::disk('public')->exists($item['photo']))
                     <img src="{{ asset('storage/'.$item['photo']) }}" class="rounded img-md">
