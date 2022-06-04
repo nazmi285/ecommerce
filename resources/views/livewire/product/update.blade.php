@@ -58,7 +58,7 @@
 									<label class="custom-control-label" for="promoable">Check this to set your promotional price</label>
 								</div>
 							</label>
-							<div class="input-group" id="promo-field">
+							<div class="input-group {{!$promoable?'d-none':''}}" id="promo-field">
 								<span class="input-group-text bg-light" id="promo_price">RM</span>
 								<input type="text" class="form-control text-primary border-start-0 text-end format_money" wire:model="promo_price" id="promo_price" value="{{old('promo_price')}}" oninput="validate(this)" placeholder="0.00" maxlength="7">
 							</div>
@@ -73,7 +73,7 @@
 									<label class="custom-control-label" for="stockable">Check this to manage stock</label>
 								</div>
 							</label>
-							<input type="number" class="form-control text-primary text-end " wire:model="quantity" id="quantity" min="1" value="{{old('quantity')}}" placeholder="0">
+							<input type="number" class="form-control text-primary text-end {{!$stockable?'d-none':''}}" wire:model="quantity" id="quantity" min="1" value="{{old('quantity')}}" placeholder="0">
 							@error('quantity') <span class="text-danger">{{ $message }}</span> @enderror
 							<div id="quantity" class="form-text">Default availability is Pre-Order</div>
 						</div>
@@ -81,7 +81,7 @@
 						<div class="col-12 mb-3">
 							<label for="weight">Set product weight</label>
 							<div class="input-group">
-								<input type="number" class="form-control text-primary border-end-0" min="0.1" step="0.1" wire:model="weight" id="weight" value="{{old('weight')}}" placeholder="0" aria-describedby="weight">
+								<input type="number" class="form-control text-primary border-end-0" min="0.001" step="0.001" wire:model="weight" id="weight" value="{{old('weight')}}" placeholder="0" aria-describedby="weight">
 								<span class="input-group-text bg-light" id="price">KG</span>
 							</div>
 							<div id="weight" class="form-text">Auto calculate delivery fee using EasyParcel.</div>

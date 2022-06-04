@@ -8,11 +8,12 @@
     		
 			<div class="clearfix mb-3">
 				{{-- <input type="search" class="form-control float-start w-auto " placeholder="Search Product" name="keyword"> --}}
-				<div class="input-group float-start w-50">
-					<input type="text" class="form-control text-primary border-end-0" wire:model="keyword" id="keyword" placeholder="Search Product" >
+				<div class="input-group float-start w-75">
+					<input type="search" class="form-control text-primary border-end-0" wire:model="keyword" id="keyword" placeholder="Search Product" >
 					<span class="input-group-text bg-light" id="keyword"><i class="fas fa-search"></i></span>
 				</div>
-				<button type="button" class="btn btn-link text-decoration-none float-end" data-bs-toggle="modal" data-bs-target="#createModal"><i class="fa fa-plus" aria-hidden="true"></i> Add New</button>
+				<button type="button" class="btn btn-outline-secondary float-end ms-2" data-bs-toggle="modal" data-bs-target="#filterModal"><i class="fas fa-sort-amount-down"></i></button>
+				<button type="button" class="btn btn-outline-secondary float-end" data-bs-toggle="modal" data-bs-target="#filterModal"><i class="fas fa-filter"></i></button>
 			</div>
 			<div class="position-absolute top-100 start-100 translate-middle" style="z-index: 999;">
     			
@@ -70,7 +71,11 @@
 			<div class="navbar-brand">
 			</div>
 			<div class="col-md-12">
-				<button type="button" class="btn btn-circle btn-lg btn-primary shadow-sm float-end" data-bs-toggle="modal" data-bs-target="#createModal"><i class="fa fa-plus" aria-hidden="true"></i></button>
+
+
+
+				
+				<button type="button" class="btn btn-circle btn-lg btn-outline-primary shadow-sm float-end" data-bs-toggle="modal" data-bs-target="#createModal"><i class="fa fa-plus" aria-hidden="true"></i></button>
 			</div>
 		</div>
 	</nav>

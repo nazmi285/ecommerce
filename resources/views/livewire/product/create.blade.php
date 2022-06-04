@@ -68,7 +68,7 @@
 									<label class="custom-control-label" for="stockable">Check this to manage stock</label>
 								</div>
 							</label>
-							<input type="number" class="form-control text-primary text-end " wire:model="form.quantity" id="quantity" min="1" value="{{old('quantity')}}" placeholder="0">
+							<input type="number" class="form-control text-primary text-end" wire:model="form.quantity" id="quantity" min="1" value="{{old('quantity')}}" placeholder="0">
 							@error('quantity') <span class="text-danger">{{ $message }}</span> @enderror
 							<div id="quantity" class="form-text">Default availability is Pre-Order</div>
 						</div>

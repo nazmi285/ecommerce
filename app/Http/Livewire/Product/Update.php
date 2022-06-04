@@ -10,7 +10,7 @@ class Update extends Component
 {
     use WithFileUploads;
 
-	public $product,$name,$description,$price,$promoable,$promo_price,$stockable,$quantity,$weight,$photo;
+	public $product,$name,$description,$price,$promoable=false,$promo_price,$stockable=false,$quantity,$weight,$photo;
 
     public function updatedPhoto()
     {
@@ -26,13 +26,29 @@ class Update extends Component
             'description' => 'required',
             'price' => 'required',
         ]);
+        if($this->photo){
+            $photo_url = $this->photo->store('photos','public');
+            $this->product->image_url = isset($photo_url)?$photo_url:null;
+        }
 
-        $photo_url = $this->photo->store('photos','public');
+        if($this->promoable){
+            $this->product->promo_price = $this->promo_price;
+        }else{
+            $this->product->promo_price = null;
+        }
 
-        $this->product->image_url = isset($photo_url)?$photo_url:null;
+        if($this->stockable){
+            $this->product->stockable = true;
+            $this->product->quantity = $this->quantity;
+        }else{
+            $this->product->stockable = false;
+            $this->product->quantity = null;
+        }
+
         $this->product->name = $this->name;
         $this->product->description = $this->description;
         $this->product->price = $this->price;
+        $this->product->weight = $this->weight;
         $this->product->save();
 
         $this->emit('productChanges');
@@ -46,9 +62,13 @@ class Update extends Component
     	$this->name = $product->name;
     	$this->description = $product->description;
     	$this->price = $product->price;
-    	$this->promoable = $product->promoable;
+        if($product->promo_price){
+            $this->promoable = true; 
+        }
     	$this->promo_price = $product->promo_price;
-    	$this->stockable = $product->stockable;
+        if($product->stockable){
+            $this->stockable = true; 
+        }
     	$this->quantity = $product->quantity;
     	$this->weight = $product->weight;
     }
