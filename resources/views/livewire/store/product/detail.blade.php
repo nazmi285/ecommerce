@@ -10,11 +10,18 @@
                         </header> --}}
 
                         <main class="app-content position-relative">
-                            <div class="position-absolute m-3 top-0 start-0"><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                            <div class="position-absolute m-3 top-0 start-0"><button type="button" class="btn-close mt-1" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                            <div class="position-absolute m-3 top-0 end-0 d-md-none">
+                                <a href="{{route('store.cart')}}" class="d-block link-dark text-decoration">
+                                    <livewire:store.trolley />
+                                </a>
+                            </div>
+
+
                             <section class="gallery-wrap scroll-horizontal">
-                                <div class="item-slider"><img src="{{asset('images/items/item.jpg')}}"></div>
-                                <div class="item-slider"><img src="{{asset('images/items/item.jpg')}}"></div>
-                                <div class="item-slider"><img src="{{asset('images/items/item.jpg')}}"></div>
+                                <div class="item-slider" style="width: 100% !important"><img src="{{asset('images/items/item.jpg')}}"></div>
+                                <div class="item-slider" style="width: 100% !important"><img src="{{asset('images/items/item.jpg')}}"></div>
+                                <div class="item-slider" style="width: 100% !important"><img src="{{asset('images/items/item.jpg')}}"></div>
                             </section>
 
                             <section class="padding-around">

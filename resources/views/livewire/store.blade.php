@@ -20,7 +20,7 @@
 			</a>
 		</div> --}}
 		@forelse($products as $product)
-		<div class="col-6 col-sm-6 col-md-4">
+		<div class="col-6 col-sm-6 col-md-4 col-lg-3">
 			<a href="#" class="product-sm mb-3 text-decoration-none" data-bs-toggle="modal" data-bs-target="#productDetailModal_{{$product->id}}">
 				<div class="img-wrap"> 
 					@if(Storage::disk('public')->exists($product->image_url))

@@ -70,7 +70,7 @@
 			<div class="navbar-brand">
 			</div>
 			<div class="col-md-12">
-				<button type="button" class="btn btn-lg btn-primary shadow-sm float-end" data-bs-toggle="modal" data-bs-target="#createModal"><i class="fa fa-plus" aria-hidden="true"></i></button>
+				<button type="button" class="btn btn-circle btn-lg btn-primary shadow-sm float-end" data-bs-toggle="modal" data-bs-target="#createModal"><i class="fa fa-plus" aria-hidden="true"></i></button>
 			</div>
 		</div>
 	</nav>
