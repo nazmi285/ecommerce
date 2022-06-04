@@ -23,6 +23,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/custom-app.css') }}" rel="stylesheet">
     <style type="text/css">
         .offcanvas-start{
             width: 264px !important;
