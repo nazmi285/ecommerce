@@ -182,7 +182,7 @@ function verifyId($id = null, $model = null, $column = null)
 
 function getStoreLink()
 {  
-    if(env('APP_DOMAIN') == 'simplycommerce.herokuapp.com'){
+    if(env('APP_DOMAIN') == 'herokuapp.com'){
         $subdomain =  '';
     }else{
        $subdomain =  'nazmi.'; 
