@@ -29,9 +29,12 @@
 						<img src="{{asset('images/items/item.jpg')}}">
 					@endif	 
 				</div>
-				<div class="text-wrap">
-					<p class="text-truncate fw-bold">{{$product->name}}</p>
-					<div class="price">RM{{number_format($product->price ? $product->price : 0,2)}}</div> <!-- price-wrap.// -->
+				<div class="text-wrap d-flex justify-content-between">
+					<div class="w-75">
+						<p class="text-truncate fw-bold">{{$product->name}}</p>
+						<div class="price">RM{{number_format($product->price ? $product->price : 0,2)}}</div>
+					</div>
+					<button type="button" class="btn btn-circle btn-sm btn-outline-primary shadow-sm float-end mt-2"><i class="fa fa-plus" aria-hidden="true"></i></button>
 				</div>
 			</a>
 			<livewire:store.product.detail :product="$product" :wire:key="$product->id">
