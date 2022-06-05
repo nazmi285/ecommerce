@@ -16,6 +16,9 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     {{-- <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet"> --}}
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+
+    <link href="{{ asset('css/fonts/fontawesome-free-6.1.1-web/css/all.min.css') }}" rel="stylesheet">
+
     <link rel="manifest" href="/manifest.json">
 
     @livewireStyles
@@ -59,7 +62,7 @@
                     {{ config('app.name', 'Laravel') }}
                 </a> --}}
                 <div class="d-flex">
-                    <a href="#" class="d-block link-dark text-decoration" id="dropdownUser1"data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                    <a href="{{route('profile')}}">
                         @if(isset(Auth::user()->image_url))
                             <img src="{{asset('storage/'.Auth::user()->image_url)}}" alt="mdo" width="32" height="32" class="rounded-circle">
                         @else
@@ -157,7 +160,7 @@
 
             <div class="offcanvas-body p-0">
 
-                <div class="d-flex flex-column flex-shrink-0 bg-light">
+                <div class="d-flex flex-column flex-shrink-0">
                     <!-- <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
                         <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
                         <span class="fs-4">Sidebar</span>
@@ -167,18 +170,29 @@
 
                     <ul class="nav nav-pills flex-column mb-auto">
 
-                      <li class="nav-item border-bottom px-2">
-                        <a href="{{route('home')}}" class="nav-link" aria-current="page">
-                          <i class="fas fa-truck me-2" aria-hidden="true"></i>
-                          Business
-                        </a>
-                      </li>
-                      <li class="nav-item border-bottom px-2">
-                        <a href="{{route('setting')}}" class="nav-link">
-                            <i class="fa fa-lg fa-cog me-2" aria-hidden="true"></i>
-                            Settings
-                        </a>
-                      </li>
+                        <li class="nav-item px-2">
+                            <a href="{{route('home')}}" class="nav-link" aria-current="page">
+                                
+                                <i class="fas fa-lg fa-truck text-secondary" style="width: 15% !important;" aria-hidden="true"></i>
+                                
+                                <span>Business</span>
+                            </a>
+                        </li>
+                        <li class="nav-item px-2">
+                            <a href="{{route('setting')}}" class="nav-link">
+                                <i class="fas fa-lg fa-lg fa-credit-card text-secondary" style="width: 15% !important;" aria-hidden="true"></i>
+                                
+                                <span>Payments</span>
+                            </a>
+                        </li>
+                        <li class="nav-item px-2">
+                            <a href="{{route('setting')}}" class="nav-link">
+                                 
+                                <i class="fas fa-lg fa-lg fa-cog text-secondary" style="width: 15% !important;" aria-hidden="true"></i>
+                                
+                                <span>Settings</span>
+                            </a>
+                        </li>
                     </ul>
                     {{-- <ul class="nav nav-pills flex-column mb-auto">
                         <!-- <li class="nav-item">
@@ -206,10 +220,26 @@
                             </a>
                         </li>
                     </ul> --}}
+                    <div class="position-absolute bottom-0 start-0 w-100 mb-3">  
+                        <hr> 
+                        <ul class="nav nav-pills flex-column">
+
+                            <li class="nav-item px-2">
+                                <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        
+                                    <i class="fa fa-lg fa-power-off text-secondary" style="width: 15% !important;" aria-hidden="true"></i>
+                                    {{ __('Logout') }}
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </li> 
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasExampleLabel">
+        {{-- <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasExampleLabel">
             <div class="offcanvas-header">
                 <div class="col-12 text-center mt-3">
                     <a href="{{route('profile')}}">
@@ -239,8 +269,8 @@
                     </ul>
                 </div>
             </div>
-        </div>
-        <main class="py-4 mt-5">
+        </div> --}}
+        <main class="py-4">
             @yield('content')
         </main>
     </div>

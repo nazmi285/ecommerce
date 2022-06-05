@@ -2,7 +2,7 @@
 	@section('title')
 	<h4 class="fw-bold p-2 mb-0">Products</h4>
 	@endsection
-	
+
 	<nav class="navbar fixed-bottom navbar-light" style="bottom:55px;">
 		<div class="container">
 			<div class="navbar-brand">
@@ -19,11 +19,11 @@
 			<div class="clearfix mb-3">
 				{{-- <input type="search" class="form-control float-start w-auto " placeholder="Search Product" name="keyword"> --}}
 				<div class="input-group float-start w-75">
-					<input type="search" class="form-control text-primary border-end-0" wire:model="keyword" id="keyword" placeholder="Search Product" >
-					<span class="input-group-text bg-light" id="keyword"><i class="fas fa-search"></i></span>
+					<input type="search" class="form-control bg-white border-0" wire:model="keyword" id="keyword" placeholder="Search Product" >
+					<span class="input-group-text bg-white border-0" id="keyword"><i class="fas fa-search"></i></span>
 				</div>
-				<button type="button" class="btn btn-outline-secondary float-end ms-2" data-bs-toggle="modal" data-bs-target="#filterModal"><i class="fas fa-sort-amount-down"></i></button>
-				<button type="button" class="btn btn-outline-secondary float-end" data-bs-toggle="modal" data-bs-target="#filterModal"><i class="fas fa-filter"></i></button>
+				<button type="button" class="btn bg-white float-end ms-2" data-bs-toggle="modal" data-bs-target="#filterModal"><i class="fas fa-sort-amount-down"></i></button>
+				<button type="button" class="btn bg-white float-end" data-bs-toggle="modal" data-bs-target="#filterModal"><i class="fas fa-filter"></i></button>
 			</div>
 			<div class="position-absolute top-100 start-100 translate-middle" style="z-index: 999;">
     			
