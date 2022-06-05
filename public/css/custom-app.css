@@ -36,3 +36,7 @@
 .nav-pills li a:hover {
   background-color: whitesmoke;
 }
+
+.nav-pills li a .active {
+  background-color: whitesmoke;
+}

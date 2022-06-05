@@ -14,7 +14,7 @@
             @foreach($orders as $key => $val)
                 <span class="badge mb-1 mt-2 rounded-0 fs-6 fw-normal text-muted">{{carbonDateSorting($key)}}</span>
                 @foreach($val as $order)
-                <div class="card border-0 mb-2">
+                <div class="card border-0 mb-2" data-bs-toggle="modal" data-bs-target="#orderDetailsModal_{{$order->id}}">
                     <div class="card-body">
                         <div class="clearfix">
                             <h5 class="card-title float-start fw-bold">#{{$order->order_no}}</h5>
@@ -24,6 +24,7 @@
 
                     </div>
                 </div>
+                <livewire:order.details :order="$order" :wire:key="$order->id">
                 @endforeach
             @endforeach
         </div>

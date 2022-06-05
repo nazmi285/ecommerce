@@ -187,6 +187,13 @@
                         </li>
                         <li class="nav-item px-2">
                             <a href="{{route('setting')}}" class="nav-link">
+                                <i class="fas fa-lg fa-lg fa-users text-secondary" style="width: 15% !important;" aria-hidden="true"></i>
+                                
+                                <span>Users</span>
+                            </a>
+                        </li>
+                        <li class="nav-item px-2">
+                            <a href="{{route('setting')}}" class="nav-link">
                                  
                                 <i class="fas fa-lg fa-lg fa-cog text-secondary" style="width: 15% !important;" aria-hidden="true"></i>
                                 

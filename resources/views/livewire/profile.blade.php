@@ -1,4 +1,8 @@
 <div>
+	@section('title')
+		<h4 class="fw-bold p-2 mb-0">Profile</h4>
+	@endsection
+
 	<div class="row justify-content-center">
 		<div class="col-12 col-md-8 mb-3">
 			
