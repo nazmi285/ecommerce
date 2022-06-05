@@ -53,8 +53,8 @@
 									<label class="custom-control-label" for="promoable">Check this to set your promotional price</label>
 								</div>
 							</label>
-							 {{-- {{isset($form['promo_price'])?'':'d-none'}} --}}
-							<div class="input-group" id="promo-field">
+
+							<div class="input-group {{$form['promoable']?'':'d-none'}}" id="promo-field">
 								<span class="input-group-text bg-light" id="promo_price">RM</span>
 								<input type="text" class="form-control text-primary border-start-0 text-end format_money" wire:model="form.promo_price" id="promo_price" value="{{old('promo_price')}}" oninput="validate(this)" placeholder="0.00" maxlength="7">
 							</div>
@@ -69,7 +69,7 @@
 									<label class="custom-control-label" for="stockable">Check this to manage stock</label>
 								</div>
 							</label>
-							<input type="number" class="form-control text-primary text-end" wire:model="form.quantity" id="quantity" min="1" value="{{old('quantity')}}" placeholder="0">
+							<input type="number" class="form-control text-primary text-end {{$form['stockable']?'':'d-none'}}" wire:model="form.quantity" id="quantity" min="1" value="{{old('quantity')}}" placeholder="0">
 							@error('quantity') <span class="text-danger">{{ $message }}</span> @enderror
 							<div id="quantity" class="form-text">Default availability is Pre-Order</div>
 						</div>

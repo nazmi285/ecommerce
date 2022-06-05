@@ -148,23 +148,39 @@
         </nav>
         <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasLeft" aria-labelledby="offcanvasExampleLabel">
             <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasExampleLabel">
-                <svg class="bi me-2" width="40" height="32">
-                    <use xlink:href="#bootstrap"></use></svg> {{ config('app.name', 'Laravel') }}
-                </h5>
+                <h5 class="offcanvas-title m" id="offcanvasExampleLabel"></h5>
+                <h4 class="fw-bold ms-2">
+                    {{ config('app.name', 'Laravel') }}
+                </h4>
                 <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
 
             <div class="offcanvas-body p-0">
 
-                <div class="d-flex flex-column flex-shrink-0 p-3 bg-light">
+                <div class="d-flex flex-column flex-shrink-0 bg-light">
                     <!-- <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
                         <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
                         <span class="fs-4">Sidebar</span>
                     </a> -->
 
                     <!-- <hr> -->
+
                     <ul class="nav nav-pills flex-column mb-auto">
+
+                      <li class="nav-item border-bottom px-2">
+                        <a href="{{route('home')}}" class="nav-link" aria-current="page">
+                          <i class="fas fa-truck me-2" aria-hidden="true"></i>
+                          Business
+                        </a>
+                      </li>
+                      <li class="nav-item border-bottom px-2">
+                        <a href="{{route('setting')}}" class="nav-link">
+                            <i class="fa fa-lg fa-cog me-2" aria-hidden="true"></i>
+                            Settings
+                        </a>
+                      </li>
+                    </ul>
+                    {{-- <ul class="nav nav-pills flex-column mb-auto">
                         <!-- <li class="nav-item">
                             <a href="#" class="nav-link active" aria-current="page">
                                 <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
@@ -189,13 +205,7 @@
                                 Bootstrap 5
                             </a>
                         </li>
-                        <li>
-                            <a href="{{route('setting')}}" class="nav-link link-dark">
-                                <i class="fa fa-lg fa-cog" aria-hidden="true"></i>
-                                Settings
-                            </a>
-                        </li>
-                    </ul>
+                    </ul> --}}
                 </div>
             </div>
         </div>

@@ -79,7 +79,7 @@ class Cart extends Component
 
         $this->clearCart();
 
-        return redirect()->route('store.order');
+        return redirect()->to('store/order');
     }
 
     public function render()

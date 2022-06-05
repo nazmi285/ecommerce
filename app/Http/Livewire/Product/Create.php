@@ -10,7 +10,10 @@ class Create extends Component
 {
     use WithFileUploads;
 
-	public $form;
+	public $form = [
+        'promoable'=>false,
+        'stockable'=>false
+    ];
 
     public function updatedPhoto()
     {
