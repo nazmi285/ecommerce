@@ -66,6 +66,83 @@
 		<span class="visually-hidden">Loading...</span>
 	</div>
 </div>
+
+<style type="text/css">
+    .nav-underline > li > a.active,
+    .nav-underline > li > a.active:hover {
+        text-decoration: none;
+        border-radius:0px;
+        border-bottom: 3px solid #007BFE;
+        color: #007BFE !important;
+        background-color: transparent !important;
+
+    }
+    .nav-underline > li > a:hover {
+    	text-decoration: none;
+        border-radius:0px;
+        /*border-bottom: 3px solid #007BFE;*/
+        color: #007BFE !important;
+        background-color: transparent !important;
+        /*text-decoration: none;
+        font-weight: bold;
+        border-radius:0px;
+            color: #007BFE !important;
+          background-color: #f8f9fa;
+          margin-left: 3px;
+          margin-right: 3px;*/
+
+    }
+    .nav-underline  > a{
+        border-radius:0px;
+        font-weight: bold;
+        color: #6c757d  !important;
+        margin-left: 3px;
+          margin-right: 3px;
+
+    }
+</style>
+
+<div class="container">
+	<div class="row justify-content-center">
+		<div class="col-md-8 mb-3">
+			<nav id="navbar-example2" class="navbar navbar-light sticky-top bg-light px-3" style="top:55px;">
+				<a class="navbar-brand" href="#">Navbar</a>
+				<ul class="nav nav-underline">
+					<li class="nav-item">
+						<a class="nav-link active" href="#scrollspyHeading1">First</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#scrollspyHeading2">Second</a>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Dropdown</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="#scrollspyHeading3">Third</a></li>
+							<li><a class="dropdown-item" href="#scrollspyHeading4">Fourth</a></li>
+							<li><hr class="dropdown-divider"></li>
+							<li><a class="dropdown-item" href="#scrollspyHeading5">Fifth</a></li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+			<div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" class="scrollspy-example" tabindex="0">
+				<h4 id="scrollspyHeading1">First heading</h4>
+				<p>...</p>
+				<h4 id="scrollspyHeading2">Second heading</h4>
+				<p>...</p>
+				<h4 id="scrollspyHeading3">Third heading</h4>
+				<p>...</p>
+				<h4 id="scrollspyHeading4">Fourth heading</h4>
+				<p>...</p>
+				<h4 id="scrollspyHeading5">Fifth heading</h4>
+				<p>...</p>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+
 <div class="container">
 	<div class="row justify-content-center">
 		<div class="col-md-8 mb-3">
@@ -229,6 +306,7 @@
 		</div>
 	</div>
 </div>
+
 
 <script type="text/javascript">
     // Example starter JavaScript for disabling form submissions if there are invalid fields

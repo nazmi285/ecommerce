@@ -29,8 +29,9 @@
 										@error('photo') <span class="text-danger">{{ $message }}</span> @enderror
 									</div>
 									<div class="mb-3">
-										<label for="full_name" class="form-label">Name</label>
-										<input type="text" class="form-control" id="full_name" value="{{$user->name}}">
+										<label for="username" class="form-label">Username</label>
+										<input type="text" class="form-control @error('username') is-invalid @enderror" wire:model="form.name" id="username">
+										@error('username') <span class="error">{{ $message }}</span> @enderror
 									</div>
 									<div class="mb-3">
 										<label for="exampleInputPassword1" class="form-label">Email</label>
@@ -50,20 +51,29 @@
 								<p>Ensure your account is using a long, random password to stay secure.</p>
 							</div>
 							<div class="col-12 col-md-6 mb-3">
-								<form>
+								<form wire:submit.prevent="changePassword">
 									<div class="mb-3">
 										<label for="current_password" class="form-label">Current Password</label>
-										<input type="text" class="form-control" id="current_password">
+										<input type="password" class="form-control @error('current_password') is-invalid @enderror" wire:model.defer="form.current_password" id="current_password">
+										@error('current_password')
+											<span class="invalid-feedback">{{ $message }}</span> 
+										@enderror
 									</div>
 									<div class="mb-3">
 										<label for="password" class="form-label">New Password</label>
-										<input type="text" class="form-control" id="password">
+										<input type="password" class="form-control @error('password') is-invalid @enderror" wire:model.defer="form.password" id="password">
+										@error('password') 
+											<span class="invalid-feedback">{{ $message }}</span> 
+										@enderror
 									</div>
 									<div class="mb-3">
-										<label for="confirm_password" class="form-label">Confirm Password</label>
-										<input type="text" class="form-control" id="confirm_password">
+										<label for="password_confirmation" class="form-label">Confirm Password</label>
+										<input type="password" class="form-control @error('password_confirmation') is-invalid @enderror" wire:model.defer="form.password_confirmation" id="password_confirmation">
+										@error('password_confirmation') 
+											<span class="invalid-feedback">{{ $message }}</span>
+										@enderror
 									</div>
-									<button type="submit" class="btn btn-primary float-end">Save</button>
+									<button type="submit" class="btn btn-primary float-end px-5">Save</button>
 								</form>
 							</div>
 						</div>

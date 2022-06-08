@@ -16,7 +16,8 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//{{-- fonts --}}.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    {{-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous"> --}}
+    <link href="{{ asset('css/fonts/fontawesome-free-6.1.1-web/css/all.min.css') }}" rel="stylesheet">
     <link rel="manifest" href="/manifest.json">
 
     @livewireStyles
@@ -31,8 +32,11 @@
         .offcanvas-end{
             width: 264px !important;
         }
-        .nav-link{
+        /*.nav-link{
             color: #212529 !important;
+        }*/
+        .modal-open {
+            overflow: initial !important;
         }
     </style>
     @stack('styles')

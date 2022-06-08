@@ -8,6 +8,9 @@
                 </div>
                 <div class="modal-body">
                 </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
+                </div>
             </form>
         </div>
     </div>
