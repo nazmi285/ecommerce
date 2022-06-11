@@ -1,5 +1,5 @@
 <div>
-    <div wire:ignore.self class="modal modal-open fade p-0" id="productDetailModal_{{$product->id}}" tabindex="-1" aria-labelledby="productDetailModalLabel" aria-hidden="true">
+    <div wire:ignore.self class="modal fade p-0" id="productDetailModal_{{$product->id}}" tabindex="-1" aria-labelledby="productDetailModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-fullscreen-md-down">
             <form class="modal-content" wire:submit.prevent="update">
                 <div class="modal-body p-0">

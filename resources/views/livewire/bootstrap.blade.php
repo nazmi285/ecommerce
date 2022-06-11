@@ -1,14 +1,76 @@
 <div class="col-md-8 mb-3">
-    <div class="card" style="height: 250px">
-        <div class="card-body position-relative">
-            <div class="position-absolute top-0 start-0 bg-dark">xxx</div>
-            <div class="position-absolute top-0 end-0 bg-dark">xxx</div>
-            <div class="position-absolute top-50 start-50 bg-dark">xxx</div>
-            <div class="position-absolute bottom-50 end-50 bg-dark">xxx</div>
-            <div class="position-absolute bottom-0 start-0 bg-dark">xxx</div>
-            <div class="position-absolute bottom-0 end-0 bg-dark">xxx</div>
-        </div>
-    </div>
+	<style type="text/css">
+	    .nav-underline > li > a.active,
+	    .nav-underline > li > a.active:hover {
+	        text-decoration: none;
+	        border-radius:0px;
+	        border-bottom: 3px solid #007BFE;
+	        color: #007BFE !important;
+	        background-color: transparent !important;
+
+	    }
+	    .nav-underline > li > a:hover {
+	    	text-decoration: none;
+	        border-radius:0px;
+	        /*border-bottom: 3px solid #007BFE;*/
+	        color: #007BFE !important;
+	        background-color: transparent !important;
+	        /*text-decoration: none;
+	        font-weight: bold;
+	        border-radius:0px;
+	            color: #007BFE !important;
+	          background-color: #f8f9fa;
+	          margin-left: 3px;
+	          margin-right: 3px;*/
+
+	    }
+	    .nav-underline  > li > a{
+	        border-radius:0px;
+	        /*font-weight: bold;*/
+	        color: #6c757d  !important;
+	        /*margin-left: 3px;*/
+	          /*margin-right: 3px;*/
+
+	    }
+	</style>
+	<nav>
+		<ul class="nav nav-justified nav-underline border-bottom">
+			<li class="nav-item">
+				<a class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Home</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a>
+			</li>
+		</ul>
+	</nav>
+	<div class="tab-content" id="nav-tabContent">
+		<div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+			<p><strong>1. This is some placeholder content the Home tab's associated content.</strong> Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling. You can use it with tabs, pills, and any other .nav-powered navigation.</p>
+		</div>
+		<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+			<strong>2. This is some placeholder content the Home tab's associated content.</strong> Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling. You can use it with tabs, pills, and any other .nav-powered navigation.
+		</div>
+		<div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+			<strong>3. This is some placeholder content the Home tab's associated content.</strong> Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling. You can use it with tabs, pills, and any other .nav-powered navigation.
+		</div>
+	</div>
+
+
+	<div class="col-md-8 mb-3">
+		<div class="card" style="height: 250px">
+			<div class="card-body position-relative">
+				<div class="position-absolute top-0 start-0 bg-dark">xxx</div>
+				<div class="position-absolute top-0 end-0 bg-dark">xxx</div>
+				<div class="position-absolute top-50 start-50 bg-dark">xxx</div>
+				<div class="position-absolute bottom-50 end-50 bg-dark">xxx</div>
+				<div class="position-absolute bottom-0 start-0 bg-dark">xxx</div>
+				<div class="position-absolute bottom-0 end-0 bg-dark">xxx</div>
+			</div>
+		</div>
+	</div>
 </div>
 <div class="col-md-8 mb-3">
     <div class="card" style="height: 250px">
@@ -307,7 +369,39 @@
 	</div>
 </div>
 
+<div class="container">
+	<div class="row justify-content-center">
+		<div class="col-md-8 mb-3">
+			<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+  				<div class="carousel-inner">
+					<div class="carousel-item ">
+						<img src="{{ asset('storage/product/photos/9ONn0bjNZ0TtTGV7uqfLl3fB7dNRUjKWOndkIpml.jpg') }}" class="d-block w-100" alt="...">
+					</div>
+					<div class="carousel-item active">
+						<img src="{{asset('storage/photos/SNiT6z9v9I1fgyq8XQVWGjkL8ObdcpiMe7y5TdJv.jpg')}}" class="d-block w-100" alt="...">
+					</div>
+					<div class="carousel-item">
+						<img src="{{asset('images/items/item.jpg')}}" class="d-block w-100" alt="...">
+					</div>
+				</div>
+				 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+				    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				    <span class="visually-hidden">Previous</span>
+				  </button>
+				  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+				    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+				    <span class="visually-hidden">Next</span>
+				  </button>
+			</div>
 
+		</div>
+	</div>
+</div>
+@push('scripts')
+<script>
+
+</script>
+@endpush
 <script type="text/javascript">
     // Example starter JavaScript for disabling form submissions if there are invalid fields
     (function () {

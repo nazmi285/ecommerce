@@ -26,6 +26,8 @@
             <livewire:profile />
         @elseif(Route::currentRouteName()=="booking")
             <livewire:booking />
+        @elseif(Route::currentRouteName()=="merchant")
+            <livewire:merchant />
         @endif
     </div>
 </div>

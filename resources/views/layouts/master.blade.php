@@ -15,7 +15,6 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     {{-- <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet"> --}}
-    {{-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous"> --}}
 
     <link href="{{ asset('css/fonts/fontawesome-free-6.1.1-web/css/all.min.css') }}" rel="stylesheet">
 
@@ -171,11 +170,17 @@
                     <ul class="nav nav-pills flex-column mb-auto">
 
                         <li class="nav-item px-2">
-                            <a href="{{route('home')}}" class="nav-link" aria-current="page">
+                            <a href="{{route('merchant')}}" class="nav-link" aria-current="page">
+                                <i class="fa-solid fa-building fa-lg text-secondary" style="width: 15% !important;" aria-hidden="true"></i>
                                 
-                                <i class="fas fa-lg fa-truck text-secondary" style="width: 15% !important;" aria-hidden="true"></i>
+                                <span>Company</span>
+                            </a>
+                        </li>
+                        <li class="nav-item px-2">
+                            <a href="{{route('setting')}}" class="nav-link">
+                                <i class="fa-solid fa-pager fa-lg text-secondary" style="width: 15% !important;" aria-hidden="true"></i>
                                 
-                                <span>Business</span>
+                                <span>Web Page</span>
                             </a>
                         </li>
                         <li class="nav-item px-2">

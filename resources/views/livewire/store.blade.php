@@ -2,13 +2,7 @@
 <div>
 	<div class="row">
 
-		<div class="col-12 col-sm-12 col-md-12 mb-3">
-			<div class="input-group input group-sm">
-				<input type="search" class="form-control rounded-3 " name="keyword" id="keyword">
-				<button type="button" class="btn btn-icon rounded-3 mx-2"><i class="fa fa-th-large" aria-hidden="true"></i></button>
-				<button type="button" class="btn btn-icon rounded-3"><i class="fa fa-th-list" aria-hidden="true"></i></button>
-			</div>
-		</div>
+		
 		{{-- <div class="col-6 col-sm-6 col-md-4">
 			<a href="#" class="product-sm mb-3 text-decoration-none position-relative" data-bs-toggle="modal" data-bs-target="#exampleModal">
 
@@ -20,7 +14,33 @@
 				</div>
 			</a>
 		</div> --}}
+			<style>
+				@media only screen and (min-device-width: 736px) {
+					/*.modal-dialog:hover {
+					  overflow-y: scroll;
+					}*/
+					/* width */
+					::-webkit-scrollbar {
+					  width: 8px;
+					  height: 8px;
+					}
 
+					/* Track */
+					::-webkit-scrollbar-track {
+					  background: #f1f1f1;
+					}
+
+					/* Handle */
+					::-webkit-scrollbar-thumb {
+					  background: #888;
+					}
+
+					/* Handle on hover */
+					::-webkit-scrollbar-thumb:hover {
+					  background: #555;
+					}
+				}
+			</style>
 
 			@forelse($products as $product)
 				<div class="col-6 col-sm-6 col-md-4 col-lg-3">

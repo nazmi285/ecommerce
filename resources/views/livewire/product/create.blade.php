@@ -37,57 +37,73 @@
 							<textarea class="form-control text-primary" wire:model="form.description" id="description" value="{{old('description')}}" rows="3"></textarea>
 							@error('description') <span class="text-danger">{{ $message }}</span> @enderror
 						</div>
-						<div class="col-12 mb-3">
-							<label class="" for="price">Price</label>
-							<div class="input-group">
-								<span class="input-group-text bg-light" id="price">RM</span>
-								<input type="text" class="form-control text-primary border-start-0  text-end format_money" wire:model="form.price" id="price" value="{{old('price')}}" oninput="validate(this)" placeholder="0.00" maxlength="7">
-							</div>
-							@error('description') <span class="text-danger">{{ $message }}</span> @enderror
-							<div id="price" class="form-text">Set your price between RM2 and RM30000</div>
-						</div>
-						<div class="col-12 mb-3">
-							<label for="promoable">
-								<div class="custom-control custom-checkbox">
-									<input type="checkbox" class="custom-control-input" wire:model="form.promoable" id="promoable" value="1">
-									<label class="custom-control-label" for="promoable">Check this to set your promotional price</label>
+						<nav>
+							<ul class="nav nav-justified nav-underline border-bottom">
+								<li class="nav-item">
+									<a class="nav-link active" id="nav-standart-tab" data-bs-toggle="tab" data-bs-target="#nav-standart" type="button" role="tab" aria-controls="nav-standart" aria-selected="true">Standart</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" id="nav-variation-tab" data-bs-toggle="tab" data-bs-target="#nav-variation" type="button" role="tab" aria-controls="nav-variation" aria-selected="false">Variation</a>
+								</li>
+							</ul>
+						</nav>
+						<div class="tab-content" id="nav-tabContent">
+							<div class="tab-pane fade show active pt-3" id="nav-standart" role="tabpanel" aria-labelledby="nav-standart-tab">
+								<div class="col-12 mb-3">
+									<label class="" for="price">Price</label>
+									<div class="input-group">
+										<span class="input-group-text bg-light" id="price">RM</span>
+										<input type="text" class="form-control text-primary border-start-0  text-end format_money" wire:model="form.price" id="price" value="{{old('price')}}" oninput="validate(this)" placeholder="0.00" maxlength="7">
+									</div>
+									@error('description') <span class="text-danger">{{ $message }}</span> @enderror
+									<div id="price" class="form-text">Set your price between RM2 and RM30000</div>
 								</div>
-							</label>
 
-							<div class="input-group {{$form['promoable']?'':'d-none'}}" id="promo-field">
-								<span class="input-group-text bg-light" id="promo_price">RM</span>
-								<input type="text" class="form-control text-primary border-start-0 text-end format_money" wire:model="form.promo_price" id="promo_price" value="{{old('promo_price')}}" oninput="validate(this)" placeholder="0.00" maxlength="7">
-							</div>
-							@error('promo_price') <span class="text-danger">{{ $message }}</span> @enderror
-							<div id="promo_price" class="form-text">Remain unchecked is product have no promotional price</div>
-						</div>
+								<div class="col-12 mb-3">
+									<label for="promoable">
+										<div class="custom-control custom-checkbox">
+											<input type="checkbox" class="custom-control-input" wire:model="form.promoable" id="promoable" value="1">
+											<label class="custom-control-label" for="promoable">Check this to set your promotional price</label>
+										</div>
+									</label>
 
-						<div class="col-12 mb-3">
-							<label for="quantity">
-								<div class="custom-control custom-checkbox">
-									<input type="checkbox" class="custom-control-input" wire:model="form.stockable" id="stockable" value="1">
-									<label class="custom-control-label" for="stockable">Check this to manage stock</label>
+									<div class="input-group {{$form['promoable']?'':'d-none'}}" id="promo-field">
+										<span class="input-group-text bg-light" id="promo_price">RM</span>
+										<input type="text" class="form-control text-primary border-start-0 text-end format_money" wire:model="form.promo_price" id="promo_price" value="{{old('promo_price')}}" oninput="validate(this)" placeholder="0.00" maxlength="7">
+									</div>
+									@error('promo_price') <span class="text-danger">{{ $message }}</span> @enderror
+									<div id="promo_price" class="form-text">Remain unchecked is product have no promotional price</div>
 								</div>
-							</label>
-							<input type="number" class="form-control text-primary text-end {{$form['stockable']?'':'d-none'}}" wire:model="form.quantity" id="quantity" min="1" value="{{old('quantity')}}" placeholder="0">
-							@error('quantity') <span class="text-danger">{{ $message }}</span> @enderror
-							<div id="quantity" class="form-text">Default availability is Pre-Order</div>
-						</div>
 
-						<div class="col-12 mb-3">
-							<label for="weight">Set product weight</label>
-							<div class="input-group">
-								<input type="number" class="form-control text-primary border-end-0" min="0.1" step="0.1" wire:model="form.weight" id="weight" value="{{old('weight')}}" placeholder="0" aria-describedby="weight">
-								<span class="input-group-text bg-light" id="price">KG</span>
+								<div class="col-12 mb-3">
+									<label for="quantity">
+										<div class="custom-control custom-checkbox">
+											<input type="checkbox" class="custom-control-input" wire:model="form.stockable" id="stockable" value="1">
+											<label class="custom-control-label" for="stockable">Check this to manage stock</label>
+										</div>
+									</label>
+									<input type="number" class="form-control text-primary text-end {{$form['stockable']?'':'d-none'}}" wire:model="form.quantity" id="quantity" min="1" value="{{old('quantity')}}" placeholder="0">
+									@error('quantity') <span class="text-danger">{{ $message }}</span> @enderror
+									<div id="quantity" class="form-text">Default availability is Pre-Order</div>
+								</div>
+								<div class="col-12 mb-3">
+									<label for="weight">Set product weight</label>
+									<div class="input-group">
+										<input type="number" class="form-control text-primary border-end-0" min="0.1" step="0.1" wire:model="form.weight" id="weight" value="{{old('weight')}}" placeholder="0" aria-describedby="weight">
+										<span class="input-group-text bg-light" id="price">KG</span>
+									</div>
+									<div id="weight" class="form-text">Auto calculate delivery fee using EasyParcel.</div>
+									<div id="weight" class="form-text">Manage delivery, go to Settings > <a href="{{url('/delivery')}}">Delivery</a></div>
+								</div>
 							</div>
-							<div id="weight" class="form-text">Auto calculate delivery fee using EasyParcel.</div>
-							<div id="weight" class="form-text">Manage delivery, go to Settings > <a href="{{url('/delivery')}}">Delivery</a></div>
+							<div class="tab-pane fade pt-3" id="nav-variation" role="tabpanel" aria-labelledby="nav-variation-tab">
+								<div class="col-12 mb-3 d-flex justify-content-between">
+									<label for="quantity">Variations</label>
+									<button class="btn btn-link" data-bs-toggle="modal" data-bs-target="#exampleModal">New Variation</button>
+								</div>
+							</div>
 						</div>
-						<div class="col-12 mb-3 d-flex justify-content-between">
-							<label for="quantity">Variations</label>
-							<button class="btn btn-link" data-bs-toggle="modal" data-bs-target="#exampleModal">New Variation</button>
-						</div>
-
+						
 					</div>
 
 					<div wire:ignore.self class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -107,7 +123,6 @@
 							</div>
 						</div>
 					</div>
-
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn" data-bs-dismiss="modal">Cancel</button>

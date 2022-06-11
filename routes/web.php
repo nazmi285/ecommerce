@@ -22,7 +22,7 @@ Auth::routes(['verify' => true]);
 Route::get('auth/google', 'SocialController@redirectToGoogle');
 Route::get('auth/google/callback', 'SocialController@googleCallback');
 
-Route::domain('{subdomain}.'.env('APP_DOMAIN', 'ecommerce.org'))->group(function () {
+// Route::domain('{subdomain}.'.env('APP_DOMAIN', 'ecommerce.org'))->group(function () {
 
 	Route::prefix('store')->group(function () {
 		Route::get('/',function(){
@@ -37,7 +37,7 @@ Route::domain('{subdomain}.'.env('APP_DOMAIN', 'ecommerce.org'))->group(function
 			return view('public');
 		})->name('store.order');
 	});
-});
+// });
 
 Route::group(['middleware' => ['auth', 'verified']], function () {
 	Route::get('/home', 'HomeController@index')->name('home');
@@ -54,6 +54,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 	Route::get('/bootstrap', 'HomeController@index')->name('bootstrap');
 	Route::get('/profile', 'HomeController@index')->name('profile');
 	Route::get('/booking', 'HomeController@index')->name('booking');
+	Route::get('/merchant', 'HomeController@index')->name('merchant');
 
 });	
 
