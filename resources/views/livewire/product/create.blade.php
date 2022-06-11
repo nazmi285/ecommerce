@@ -130,7 +130,7 @@
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn" data-bs-dismiss="modal">Cancel</button>
+					<button type="button" class="btn" data-bs-dismiss="modal">Close</button>
 					<button type="submit" class="btn btn-primary">
 						<i class="fas fa-circle-notch fa-spin d-none mr-2" id="icon-processing"></i>
 						Save

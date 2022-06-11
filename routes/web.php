@@ -55,6 +55,9 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 	Route::get('/profile', 'HomeController@index')->name('profile');
 	Route::get('/booking', 'HomeController@index')->name('booking');
 	Route::get('/merchant', 'HomeController@index')->name('merchant');
+	Route::get('/payment', 'HomeController@index')->name('payment');
+	Route::get('/users', 'HomeController@index')->name('users');
+	Route::get('/report/product/sales', 'HomeController@index')->name('report.product.sales');
 
 });	
 

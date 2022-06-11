@@ -53,7 +53,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light fixed-top position-sticky bg-light bg-gradient">
             <div class="container col-md-8">
-                <button class="btn btn-icon" id="dropdownUser"data-bs-toggle="offcanvas" data-bs-target="#offcanvasLeft" aria-controls="offcanvasLeft"><i class="fas fa-lg fa-bars" aria-hidden="true"></i></button>
+                <button class="btn" id="dropdownUser"data-bs-toggle="offcanvas" data-bs-target="#offcanvasLeft" aria-controls="offcanvasLeft"><i class="fa-solid fa-bars fa-lg"></i></button>
                 <div class="col" id="navbarNav">
                     @yield('title')
                 </div>
@@ -184,14 +184,14 @@
                             </a>
                         </li>
                         <li class="nav-item px-2">
-                            <a href="{{route('setting')}}" class="nav-link">
+                            <a href="{{route('payment')}}" class="nav-link">
                                 <i class="fas fa-lg fa-lg fa-credit-card text-secondary" style="width: 15% !important;" aria-hidden="true"></i>
                                 
                                 <span>Payments</span>
                             </a>
                         </li>
                         <li class="nav-item px-2">
-                            <a href="{{route('setting')}}" class="nav-link">
+                            <a href="{{route('users')}}" class="nav-link">
                                 <i class="fas fa-lg fa-lg fa-users text-secondary" style="width: 15% !important;" aria-hidden="true"></i>
                                 
                                 <span>Users</span>

@@ -2,11 +2,7 @@
 	@section('title')
 	<h4 class="fw-bold p-2 mb-0">Products</h4>
 	@endsection
-	<style>
-		.dropstart .dropdown-toggle::before {
-		    content: none !important;
-		}
-	</style>
+
 	<nav class="navbar fixed-bottom navbar-light" style="bottom:55px;">
 		<div class="container">
 			<div class="navbar-brand">

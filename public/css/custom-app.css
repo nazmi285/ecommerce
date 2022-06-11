@@ -73,3 +73,7 @@
       /*margin-right: 3px;*/
 
 }
+
+.dropstart .dropdown-toggle::before {
+    content: none !important;
+}
