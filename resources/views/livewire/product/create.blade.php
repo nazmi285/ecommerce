@@ -12,6 +12,7 @@
                             {{ session('success') }}
                         </div>
                     @endif
+
 					<div class="form-group row justify-content-center">
 						@if (isset($form['photo']))
 					        <div class="col-4 float-start mb-3">
@@ -40,15 +41,16 @@
 						<nav>
 							<ul class="nav nav-justified nav-underline border-bottom">
 								<li class="nav-item">
-									<a class="nav-link active" id="nav-standart-tab" data-bs-toggle="tab" data-bs-target="#nav-standart" type="button" role="tab" aria-controls="nav-standart" aria-selected="true">Standart</a>
+									<a wire:click="$set('form.mode', 'STANDART')" class="nav-link {{$form['mode']=='STANDART'?'active':''}}" id="nav-standart-tab" data-bs-toggle="tab" data-bs-target="#nav-standart" type="button" role="tab" aria-controls="nav-standart" aria-selected="true">Standart</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" id="nav-variation-tab" data-bs-toggle="tab" data-bs-target="#nav-variation" type="button" role="tab" aria-controls="nav-variation" aria-selected="false">Variation</a>
+									<a wire:click="$set('form.mode', 'VARIATION')" class="nav-link {{$form['mode']=='VARIATION'?'active':''}}" id="nav-variation-tab" data-bs-toggle="tab" data-bs-target="#nav-variation" type="button" role="tab" aria-controls="nav-variation" aria-selected="false">Variation</a>
 								</li>
 							</ul>
 						</nav>
+						
 						<div class="tab-content" id="nav-tabContent">
-							<div class="tab-pane fade show active pt-3" id="nav-standart" role="tabpanel" aria-labelledby="nav-standart-tab">
+							<div class="tab-pane fade {{$form['mode']=='STANDART'?'show active':''}} pt-3" id="nav-standart" role="tabpanel" aria-labelledby="nav-standart-tab">
 								<div class="col-12 mb-3">
 									<label class="" for="price">Price</label>
 									<div class="input-group">
@@ -96,14 +98,17 @@
 									<div id="weight" class="form-text">Manage delivery, go to Settings > <a href="{{url('/delivery')}}">Delivery</a></div>
 								</div>
 							</div>
-							<div class="tab-pane fade pt-3" id="nav-variation" role="tabpanel" aria-labelledby="nav-variation-tab">
-								<div class="col-12 mb-3 d-flex justify-content-between">
-									<label for="quantity">Variations</label>
-									<button class="btn btn-link" data-bs-toggle="modal" data-bs-target="#exampleModal">New Variation</button>
+							<div class="tab-pane  {{$form['mode']=='VARIATION'?'show active':''}} pt-3" id="nav-variation" role="tabpanel" aria-labelledby="nav-variation-tab">
+								<div class="col-12 col-sm-12 col-md-12 mb-3 py-5">
+									<div class="d-grid gap-2">
+										<button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+										<i class="fa-solid fa-plus"></i>
+										Create Variation
+									</button>
+									</div>
 								</div>
 							</div>
 						</div>
-						
 					</div>
 
 					<div wire:ignore.self class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

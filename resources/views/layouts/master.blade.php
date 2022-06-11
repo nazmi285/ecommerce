@@ -282,7 +282,7 @@
                 </div>
             </div>
         </div> --}}
-        <main class="py-4">
+        <main class="py-2">
             @yield('content')
         </main>
     </div>

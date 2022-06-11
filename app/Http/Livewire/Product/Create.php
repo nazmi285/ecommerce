@@ -12,8 +12,9 @@ class Create extends Component
 
 	public $form = [
         'promoable'=>false,
-        'stockable'=>false
-    ];
+        'stockable'=>false,
+        'mode'=>'STANDART',
+    ],$hello;
 
     public function updatedPhoto()
     {

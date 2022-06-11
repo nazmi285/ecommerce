@@ -44,8 +44,8 @@
 
 			@forelse($products as $product)
 				<div class="col-6 col-sm-6 col-md-4 col-lg-3">
-				<a href="#" class="product-sm mb-3 text-decoration-none" data-bs-toggle="modal" data-bs-target="#productDetailModal_{{$product->id}}">
-					<div class="img-wrap"> 
+				<a class="product-sm mb-3 text-decoration-none">
+					<div class="img-wrap" data-bs-toggle="modal" data-bs-target="#productDetailModal_{{$product->id}}"> 
 						@if(Storage::disk('public')->exists($product->image_url))
 							<img src="{{ asset('storage/'.$product->image_url) }}">
 						@else
@@ -54,7 +54,7 @@
 					</div>
 					<div class="text-wrap d-flex justify-content-between">
 						<div class="w-75">
-							<p class="text-truncate fw-bold">{{$product->name}}</p>
+							<p class="text-truncate fw-bold text-dark">{{$product->name}}</p>
 							<div class="price">RM{{number_format($product->price ? $product->price : 0,2)}}</div>
 						</div>
 						<button type="button" class="btn btn-circle no-modal btn-sm btn-outline-primary shadow-sm float-end mt-2" wire:click="addToCart({{$product->id}})"><i class="fa fa-plus" aria-hidden="true"></i></button>

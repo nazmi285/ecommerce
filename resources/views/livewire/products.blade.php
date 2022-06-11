@@ -2,7 +2,11 @@
 	@section('title')
 	<h4 class="fw-bold p-2 mb-0">Products</h4>
 	@endsection
-
+	<style>
+		.dropstart .dropdown-toggle::before {
+		    content: none !important;
+		}
+	</style>
 	<nav class="navbar fixed-bottom navbar-light" style="bottom:55px;">
 		<div class="container">
 			<div class="navbar-brand">
@@ -13,21 +17,20 @@
 		</div>
 	</nav>
 
-	<div class="row justify-content-center mb-3">
+	<div class="row justify-content-center mb-5">
     	<div class="col-12 col-sm-8 col-md-8 col-lg-8">
     		
 			<div class="clearfix mb-3">
-				{{-- <input type="search" class="form-control float-start w-auto " placeholder="Search Product" name="keyword"> --}}
-				<div class="input-group float-start w-75">
-					<input type="search" class="form-control bg-white border-0" wire:model="keyword" id="keyword" placeholder="Search Product" >
-					<span class="input-group-text bg-white border-0" id="keyword"><i class="fas fa-search"></i></span>
+				<div class="input-group">
+				  	<input type="search" class="form-control bg-white border-0" wire:model="keyword" id="keyword" placeholder="Search Product" >
+				  	<span class="btn bg-white rounded-end"><i class="fas fa-search"></i></span>
+				  	<button type="button" class="btn bg-white rounded float-end ms-2" data-bs-toggle="modal" data-bs-target="#filterModal"><i class="fa-solid fa-filter"></i></button>
 				</div>
-				<button type="button" class="btn bg-white float-end ms-2" data-bs-toggle="modal" data-bs-target="#filterModal"><i class="fas fa-sort-amount-down"></i></button>
-				<button type="button" class="btn bg-white float-end" data-bs-toggle="modal" data-bs-target="#filterModal"><i class="fas fa-filter"></i></button>
 			</div>
-			<div class="position-absolute top-100 start-100 translate-middle" style="z-index: 999;">
-    			
-    		</div>
+
+			<div class="d-flex justify-content-between">
+				<p class="text-muted"> Total {{count($products)}} </p>
+			</div>
 
 	    	@forelse($products as $key => $product)
 		    	<div class="card border-0 mb-2 bg-white">
@@ -45,14 +48,16 @@
 		    					<span class="text-muted">{{$product->name ? $product->name : ''}}</span>
 		    				</div>
 		    				<div class="flex-shrink-1">
-		    					<div class="dropdown">
-		    						<button class="btn px-2 m-2" type="button" id="btnMoreAction_{{$key}}" data-bs-toggle="dropdown" aria-expanded="false">
+		    					<div class="dropdown dropstart">
+		    						<button type="button" class="btn dropdown-toggle px-2 m-2" id="btnMoreAction_{{$key}}" data-bs-toggle="dropdown" aria-expanded="false">
 		    							<i class="fas fa-lg fa-ellipsis-h"></i>
 		    						</button>
-		    						<ul class="dropdown-menu" style="right:-40px" aria-labelledby="btnMoreAction_{{$key}}">
-		    							<li><a class="dropdown-item" href="#">Action</a></li>
-		    							<li><a class="dropdown-item" href="#">Another action</a></li>
+		    						<ul class="dropdown-menu shadow-lg border-0" aria-labelledby="btnMoreAction_{{$key}}">
+		    							<li><a class="dropdown-item" href="#">Sales Report</a></li>
+		    							<li><a class="dropdown-item" href="#">Stock</a></li>
 		    							<li><a class="dropdown-item" href="#">Something else here</a></li>
+		    							<li><hr class="dropdown-divider"></li>
+    									<li><a class="dropdown-item text-danger" href="#">Delete</a></li>
 		    						</ul>
 		    					</div>
 		    				</div>

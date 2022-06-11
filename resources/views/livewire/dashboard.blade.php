@@ -17,8 +17,8 @@
                 <div class="card border-0 mb-2" data-bs-toggle="modal" data-bs-target="#orderDetailsModal_{{$order->id}}">
                     <div class="card-body">
                         <div class="clearfix">
-                            <h5 class="card-title float-start fw-bold">#{{$order->order_no}}</h5>
-                            <span class="float-end">{{carbonDiffForHumanShort($order->created_at)}}</span>
+                            <h5 class="card-title float-start fw-bold mb-0 p-0">#{{$order->order_no}}</h5>
+                            <span class="text-muted float-end p-0">{{dateConvertHISa($order->created_at)}}</span>
                         </div>
                         <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
 
