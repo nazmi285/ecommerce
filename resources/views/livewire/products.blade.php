@@ -45,7 +45,7 @@
 		    				</div>
 		    				<div class="flex-shrink-1">
 		    					<div class="dropdown dropstart">
-		    						<button type="button" class="btn dropdown-toggle px-2 m-2" id="btnMoreAction_{{$key}}" data-bs-toggle="dropdown" aria-expanded="false">
+		    						<button type="button" class="btn dropdown-toggle" id="btnMoreAction_{{$key}}" data-bs-toggle="dropdown" aria-expanded="false">
 		    							<i class="fas fa-lg fa-ellipsis-h"></i>
 		    						</button>
 		    						<ul class="dropdown-menu shadow-lg border-0" aria-labelledby="btnMoreAction_{{$key}}">

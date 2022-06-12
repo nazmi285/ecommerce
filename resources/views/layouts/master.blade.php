@@ -61,12 +61,13 @@
                     {{ config('app.name', 'Laravel') }}
                 </a> --}}
                 <div class="d-flex">
-                    <a href="{{route('profile')}}">
+                    <a href="{{route('profile')}}" class="position-relative">
                         @if(isset(Auth::user()->image_url))
                             <img src="{{asset('storage/'.Auth::user()->image_url)}}" alt="mdo" width="32" height="32" class="rounded-circle">
                         @else
                             <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
                         @endif
+                        <div wire:offline.class="text-danger" class="position-absolute bottom-0 start-0" style="top: 18px;"><i class="fa-solid fa-circle fa-2xs text-success"></i></div>
                     </a>
                     <!-- <div class="nav-item dropdown">
 
@@ -124,7 +125,8 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{getStoreLink().'/store'}}" class="nav-link py-3 px-1">
+                            {{-- {{getStoreLink().'/store'}} --}}
+                            <a href="{{route('store')}}" class="nav-link py-3 px-1">
                                 <i class="fas fa-lg fa-store"></i>
                                 {{-- <br>
                                 Store --}}

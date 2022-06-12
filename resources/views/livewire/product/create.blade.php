@@ -52,13 +52,14 @@
 						<div class="tab-content" id="nav-tabContent">
 							<div class="tab-pane fade {{$form['mode']=='STANDART'?'show active':''}} pt-3" id="nav-standart" role="tabpanel" aria-labelledby="nav-standart-tab">
 								<div class="col-12 mb-3">
-									<label class="" for="price">Price</label>
 									<div class="input-group">
-										<span class="input-group-text bg-light" id="price">RM</span>
-										<input type="text" class="form-control text-primary border-start-0  text-end format_money" wire:model="form.price" id="price" value="{{old('price')}}" oninput="validate(this)" placeholder="0.00" maxlength="7">
+									  	<span class="input-group-text bg-white" id="price-label">RM</span>
+									  	<input type="text" class="form-control text-end border-start-0"wire:model="form.price" id="price" value="{{old('price')}}" oninput="validate(this)" placeholder="0.00" maxlength="7" aria-describedby="price-label">
 									</div>
-									@error('description') <span class="text-danger">{{ $message }}</span> @enderror
-									<div id="price" class="form-text">Set your price between RM2 and RM30000</div>
+									@error('price') 
+										<span class="text-danger">{{ $message }}</span> 
+									@enderror
+									<div class="form-text">Set your price between RM2 and RM30000</div>
 								</div>
 
 								<div class="col-12 mb-3">
@@ -68,10 +69,9 @@
 											<label class="custom-control-label" for="promoable">Check this to set your promotional price</label>
 										</div>
 									</label>
-
-									<div class="input-group {{$form['promoable']?'':'d-none'}}" id="promo-field">
-										<span class="input-group-text bg-light" id="promo_price">RM</span>
-										<input type="text" class="form-control text-primary border-start-0 text-end format_money" wire:model="form.promo_price" id="promo_price" value="{{old('promo_price')}}" oninput="validate(this)" placeholder="0.00" maxlength="7">
+									<div class="input-group {{$form['promoable']?'':'d-none'}}">
+									  	<span class="input-group-text bg-white" id="promo-price-label">RM</span>
+									  	<input type="text" class="form-control text-end border-start-0"wire:model="form.promo_price" id="promo_price" value="{{old('promo_price')}}" oninput="validate(this)" placeholder="0.00" maxlength="7" aria-describedby="promo-price-label">
 									</div>
 									@error('promo_price') <span class="text-danger">{{ $message }}</span> @enderror
 									<div id="promo_price" class="form-text">Remain unchecked is product have no promotional price</div>
@@ -97,15 +97,87 @@
 									<div id="weight" class="form-text">Auto calculate delivery fee using EasyParcel.</div>
 									<div id="weight" class="form-text">Manage delivery, go to Settings > <a href="{{url('/delivery')}}">Delivery</a></div>
 								</div>
+								<div class="col-12 mb-3">
+									<label for="first_amaun">
+										<div class="custom-control custom-checkbox">
+											<input type="checkbox" class="custom-control-input" wire:model="form.partial_payment" id="partial_payment" value="1">
+											<label class="custom-control-label" for="partial_payment">Partial payment</label>
+										</div>
+									</label>
+									<div class="input-group mb-2 {{$form['partial_payment']?'':'d-none'}}">
+									  	<span class="input-group-text bg-white" id="first-amaun-label">First Payment (RM)</span>
+									  	<input type="text" class="form-control text-end border-start-0"wire:model="form.first_amaun" id="first_amaun" value="{{old('first_amaun')}}" oninput="validate(this)" placeholder="0.00" maxlength="7" aria-describedby="first-amaun-label">
+									</div>
+									@error('first_amaun') <span class="text-danger">{{ $message }}</span> @enderror
+
+									<div class="input-group {{$form['partial_payment']?'':'d-none'}}">
+									  	<span class="input-group-text bg-white" id="last-amaun-label">Last Payment (RM)</span>
+									  	<input type="text" class="form-control text-end border-start-0"wire:model="form.last_amaun" id="last_amaun" value="{{old('last_amaun')}}" oninput="validate(this)" placeholder="0.00" maxlength="7" aria-describedby="last-amaun-label">
+									</div>
+									@error('last_amaun') <span class="text-danger">{{ $message }}</span> @enderror
+									
+									<div class="form-text">Partial payment offering split payment</div>
+								</div>
 							</div>
 							<div class="tab-pane  {{$form['mode']=='VARIATION'?'show active':''}} pt-3" id="nav-variation" role="tabpanel" aria-labelledby="nav-variation-tab">
 								<div class="col-12 col-sm-12 col-md-12 mb-3 py-5">
 									<div class="d-grid gap-2">
 										<button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-										<i class="fa-solid fa-plus"></i>
-										Create Variation
-									</button>
+											<i class="fa-solid fa-plus"></i>
+											Create Variation
+										</button>
 									</div>
+									<div class="d-flex text-muted pt-3">
+						                <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"></rect><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
+
+						                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+						                    <div class="d-flex justify-content-between">
+						                        <strong class="text-gray-dark">Full Name</strong>
+						                        <a href="#" class="text-dark me-2" id="btnMoreAction_1" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-lg fa-ellipsis-h"></i></a>
+						                        <ul class="dropdown-menu shadow-lg border-0" aria-labelledby="btnMoreAction_1">
+						                            <li><a class="dropdown-item" href="#">Edit</a></li>
+						                            <li><a class="dropdown-item" href="#">Role</a></li>
+						                            <li><hr class="dropdown-divider"></li>
+						                            <li><a class="dropdown-item text-danger" href="#">Delete</a></li>
+						                        </ul>
+						                    </div>
+						                    <span class="d-block">@username</span>
+						                </div>
+						            </div>
+						            <div class="d-flex text-muted pt-3">
+						                <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"></rect><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
+
+						                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+						                    <div class="d-flex justify-content-between">
+						                        <strong class="text-gray-dark">Full Name</strong>
+						                        <a href="#" class="text-dark me-2" id="btnMoreAction_2" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-lg fa-ellipsis-h"></i></a>
+						                        <ul class="dropdown-menu shadow-lg border-0" aria-labelledby="btnMoreAction_2">
+						                            <li><a class="dropdown-item" href="#">Edit</a></li>
+						                            <li><a class="dropdown-item" href="#">Role</a></li>
+						                            <li><hr class="dropdown-divider"></li>
+						                            <li><a class="dropdown-item text-danger" href="#">Delete</a></li>
+						                        </ul>
+						                    </div>
+						                    <span class="d-block">@username</span>
+						                </div>
+						            </div>
+						            <div class="d-flex text-muted pt-3">
+						                <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"></rect><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
+
+						                <div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+						                    <div class="d-flex justify-content-between">
+						                        <strong class="text-gray-dark">Full Name</strong>
+						                        <a href="#" class="text-dark me-2" id="btnMoreAction_3" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-lg fa-ellipsis-h"></i></a>
+						                        <ul class="dropdown-menu shadow-lg border-0" aria-labelledby="btnMoreAction_3">
+						                            <li><a class="dropdown-item" href="#">Edit</a></li>
+						                            <li><a class="dropdown-item" href="#">Role</a></li>
+						                            <li><hr class="dropdown-divider"></li>
+						                            <li><a class="dropdown-item text-danger" href="#">Delete</a></li>
+						                        </ul>
+						                    </div>
+						                    <span class="d-block">@username</span>
+						                </div>
+						            </div> 
 								</div>
 							</div>
 						</div>

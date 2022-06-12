@@ -14,6 +14,7 @@ class Create extends Component
         'promoable'=>false,
         'stockable'=>false,
         'mode'=>'STANDART',
+        'partial_payment'=>false,
     ],$hello;
 
     public function updatedPhoto()

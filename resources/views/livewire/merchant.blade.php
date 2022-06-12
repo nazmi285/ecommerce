@@ -45,14 +45,16 @@
                                     </div>
                                     <div class="mb-3">
                                         <label for="address_1" class="form-label">Company Address</label>
-                                        <input type="text" class="form-control mb-3 @error('address_1') is-invalid @enderror" wire:model="form.address_1" id="address_1" placeholder="Address 1">
+                                        <textarea class="form-control mb-3 @error('address_1') is-invalid @enderror" rows="3" wire:model="form.address_1" id="address_1"></textarea>
                                         @error('address_1') <span class="error">{{ $message }}</span> @enderror
 
-                                        <input type="text" class="form-control mb-3" wire:model="form.address_2" id="address_2" placeholder="Address 2">
+                                        {{-- <input type="text" class="form-control mb-3 @error('address_1') is-invalid @enderror" wire:model="form.address_1" id="address_1" placeholder="Address 1"> --}}
 
-                                        <input type="text" class="form-control mb-3" wire:model="form.address_3" id="address_3" placeholder="Address 3">
+                                        {{-- <input type="text" class="form-control mb-3" wire:model="form.address_2" id="address_2" placeholder="Address 2">
 
-                                        <input type="text" class="form-control mb-3 @error('postcode') is-invalid @enderror" wire:model="form.postcode" id="postcode" placeholder="Postcode">
+                                        <input type="text" class="form-control mb-3" wire:model="form.address_3" id="address_3" placeholder="Address 3"> --}}
+
+                                        <input type="number" class="form-control mb-3 @error('postcode') is-invalid @enderror" wire:model="form.postcode" id="postcode" placeholder="Postcode">
 
                                         <input type="text" class="form-control mb-3 @error('city') is-invalid @enderror" wire:model="form.city" id="city" placeholder="City">
 

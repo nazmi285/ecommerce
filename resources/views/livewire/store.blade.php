@@ -45,7 +45,7 @@
 			@forelse($products as $product)
 				<div class="col-6 col-sm-6 col-md-4 col-lg-3">
 				<a class="product-sm mb-3 text-decoration-none">
-					<div class="img-wrap" data-bs-toggle="modal" data-bs-target="#productDetailModal_{{$product->id}}"> 
+					<div class="img-wrap" style="cursor:pointer;" data-bs-toggle="modal" data-bs-target="#productDetailModal_{{$product->id}}"> 
 						@if(Storage::disk('public')->exists($product->image_url))
 							<img src="{{ asset('storage/'.$product->image_url) }}">
 						@else
@@ -57,7 +57,7 @@
 							<p class="text-truncate fw-bold text-dark">{{$product->name}}</p>
 							<div class="price">RM{{number_format($product->price ? $product->price : 0,2)}}</div>
 						</div>
-						<button type="button" class="btn btn-circle no-modal btn-sm btn-outline-primary shadow-sm float-end mt-2" wire:click="addToCart({{$product->id}})"><i class="fa fa-plus" aria-hidden="true"></i></button>
+						<button type="button" class="btn btn-circle btn-sm btn-outline-primary shadow-sm float-end mt-2" wire:click="addToCart({{$product->id}})"><i class="fa fa-plus" aria-hidden="true"></i></button>
 					</div>
 				</a>
 				<livewire:store.product.detail :product="$product" :wire:key="$product->id">

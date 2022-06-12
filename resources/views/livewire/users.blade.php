@@ -3,6 +3,16 @@
         <h4 class="fw-bold p-2 mb-0">Users</h4>
     @endsection
 
+    <nav class="navbar fixed-bottom navbar-light" style="bottom:55px;">
+        <div class="container">
+            <div class="navbar-brand">
+            </div>
+            <div class="col-md-12">
+                <button type="button" class="btn btn-circle btn-lg btn-primary shadow-sm float-end" id="btnCreateProduct" data-bs-toggle="modal" data-bs-target="#createModal"><i class="fa fa-plus" aria-hidden="true"></i></button>
+            </div>
+        </div>
+    </nav>
+    
     <div class="row justify-content-center mb-5">
         <div class="col-12 col-sm-8 col-md-8 col-lg-8">
             <div class="d-flex text-muted pt-3">

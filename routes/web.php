@@ -22,8 +22,7 @@ Auth::routes(['verify' => true]);
 Route::get('auth/google', 'SocialController@redirectToGoogle');
 Route::get('auth/google/callback', 'SocialController@googleCallback');
 
-// Route::domain('{subdomain}.'.env('APP_DOMAIN', 'ecommerce.org'))->group(function () {
-
+Route::domain('{subdomain}.'.env('APP_DOMAIN', 'ecommerce.org'))->group(function () {
 	Route::prefix('store')->group(function () {
 		Route::get('/',function(){
 			return view('public');
@@ -37,7 +36,7 @@ Route::get('auth/google/callback', 'SocialController@googleCallback');
 			return view('public');
 		})->name('store.order');
 	});
-// });
+});
 
 Route::group(['middleware' => ['auth', 'verified']], function () {
 	Route::get('/home', 'HomeController@index')->name('home');
@@ -58,6 +57,20 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 	Route::get('/payment', 'HomeController@index')->name('payment');
 	Route::get('/users', 'HomeController@index')->name('users');
 	Route::get('/report/product/sales', 'HomeController@index')->name('report.product.sales');
+
+	Route::prefix('store')->group(function () {
+		Route::get('/',function(){
+			return view('public');
+		})->name('store');
+
+		Route::get('/cart',function(){
+			return view('public');
+		})->name('store.cart');
+
+		Route::get('/order',function(){
+			return view('public');
+		})->name('store.order');
+	});
 
 });	
 
