@@ -53,7 +53,7 @@
 							<div class="tab-pane fade {{$form['mode']=='STANDART'?'show active':''}} pt-3" id="nav-standart" role="tabpanel" aria-labelledby="nav-standart-tab">
 								<div class="col-12 mb-3">
 									<div class="input-group">
-									  	<span class="input-group-text bg-white" id="price-label">RM</span>
+									  	<span class="input-group-text" id="price-label">RM</span>
 									  	<input type="text" class="form-control text-end border-start-0"wire:model="form.price" id="price" value="{{old('price')}}" oninput="validate(this)" placeholder="0.00" maxlength="7" aria-describedby="price-label">
 									</div>
 									@error('price') 
@@ -70,7 +70,7 @@
 										</div>
 									</label>
 									<div class="input-group {{$form['promoable']?'':'d-none'}}">
-									  	<span class="input-group-text bg-white" id="promo-price-label">RM</span>
+									  	<span class="input-group-text" id="promo-price-label">RM</span>
 									  	<input type="text" class="form-control text-end border-start-0"wire:model="form.promo_price" id="promo_price" value="{{old('promo_price')}}" oninput="validate(this)" placeholder="0.00" maxlength="7" aria-describedby="promo-price-label">
 									</div>
 									@error('promo_price') <span class="text-danger">{{ $message }}</span> @enderror
@@ -105,13 +105,13 @@
 										</div>
 									</label>
 									<div class="input-group mb-2 {{$form['partial_payment']?'':'d-none'}}">
-									  	<span class="input-group-text bg-white" id="first-amaun-label">First Payment (RM)</span>
+									  	<span class="input-group-text" id="first-amaun-label">First Payment (RM)</span>
 									  	<input type="text" class="form-control text-end border-start-0"wire:model="form.first_amaun" id="first_amaun" value="{{old('first_amaun')}}" oninput="validate(this)" placeholder="0.00" maxlength="7" aria-describedby="first-amaun-label">
 									</div>
 									@error('first_amaun') <span class="text-danger">{{ $message }}</span> @enderror
 
 									<div class="input-group {{$form['partial_payment']?'':'d-none'}}">
-									  	<span class="input-group-text bg-white" id="last-amaun-label">Last Payment (RM)</span>
+									  	<span class="input-group-text" id="last-amaun-label">Last Payment (RM)</span>
 									  	<input type="text" class="form-control text-end border-start-0"wire:model="form.last_amaun" id="last_amaun" value="{{old('last_amaun')}}" oninput="validate(this)" placeholder="0.00" maxlength="7" aria-describedby="last-amaun-label">
 									</div>
 									@error('last_amaun') <span class="text-danger">{{ $message }}</span> @enderror

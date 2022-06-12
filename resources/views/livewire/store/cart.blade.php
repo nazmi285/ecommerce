@@ -70,11 +70,23 @@
         @empty
         @endforelse
     </section> 
-
-    <div class="col-12">
-        <button type="submit" class="w-100 btn btn-primary btn-lg" wire:click="confirmOrder()">Confirm Order</button>
+    <div class="row">
+        <div class="col-12 col-md-6 mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name">
+        </div>
+        <div class="col-12 col-md-6 mb-3">
+            <label for="contact_no" class="form-label">Contact No.</label>
+            <input type="text" class="form-control" id="contact_no">
+        </div>
+        <div class="col-12 col-md-6 mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email">
+        </div>
+        <div class="col-12">
+            <button type="submit" class="w-100 btn btn-primary btn-lg" wire:click="confirmOrder()">Confirm Order</button>
+        </div>
     </div>
-
     <div class="position-absolute top-50 start-50 translate-middle" wire:loading>
         <div class="spinner-border text-secondary" role="status">
             <span class="visually-hidden">Loading...</span>
