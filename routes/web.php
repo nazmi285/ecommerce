@@ -22,7 +22,7 @@ Auth::routes(['verify' => true]);
 Route::get('auth/google', 'SocialController@redirectToGoogle');
 Route::get('auth/google/callback', 'SocialController@googleCallback');
 
-Route::domain('{subdomain}.'.env('APP_DOMAIN', 'ecommerce.org'))->group(function () {
+Route::domain('{subdomain}.'.env('APP_DOMAIN', 'ecommerce.org'))->middleware('visitor')->group(function () {
 	Route::prefix('store')->group(function () {
 		Route::get('/',function(){
 			return view('public');
@@ -53,9 +53,9 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 	Route::get('/bootstrap', 'HomeController@index')->name('bootstrap');
 	Route::get('/profile', 'HomeController@index')->name('profile');
 	Route::get('/booking', 'HomeController@index')->name('booking');
-	Route::get('/merchant', 'HomeController@index')->name('merchant');
+	Route::get('/company', 'HomeController@index')->name('company');
 	Route::get('/payment', 'HomeController@index')->name('payment');
-	Route::get('/users', 'HomeController@index')->name('users');
+	Route::get('/members', 'HomeController@index')->name('members');
 	Route::get('/report/product/sales', 'HomeController@index')->name('report.product.sales');
 
 	Route::prefix('store')->group(function () {

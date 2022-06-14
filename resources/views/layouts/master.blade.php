@@ -172,7 +172,7 @@
                     <ul class="nav nav-pills flex-column mb-auto">
 
                         <li class="nav-item px-2">
-                            <a href="{{route('merchant')}}" class="nav-link" aria-current="page">
+                            <a href="{{route('company')}}" class="nav-link" aria-current="page">
                                 <i class="fa-solid fa-building fa-lg text-secondary" style="width: 15% !important;" aria-hidden="true"></i>
                                 
                                 <span>Company</span>
@@ -193,10 +193,10 @@
                             </a>
                         </li>
                         <li class="nav-item px-2">
-                            <a href="{{route('users')}}" class="nav-link">
+                            <a href="{{route('members')}}" class="nav-link">
                                 <i class="fas fa-lg fa-lg fa-users text-secondary" style="width: 15% !important;" aria-hidden="true"></i>
                                 
-                                <span>Users</span>
+                                <span>Members</span>
                             </a>
                         </li>
                         <li class="nav-item px-2">

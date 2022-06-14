@@ -26,12 +26,12 @@
             <livewire:profile />
         @elseif(Route::currentRouteName()=="booking")
             <livewire:booking />
-        @elseif(Route::currentRouteName()=="merchant")
-            <livewire:merchant />
+        @elseif(Route::currentRouteName()=="company")
+            <livewire:company />
         @elseif(Route::currentRouteName()=="payment")
             <livewire:payment />
-        @elseif(Route::currentRouteName()=="users")
-            <livewire:users />
+        @elseif(Route::currentRouteName()=="members")
+            <livewire:members />
         @elseif(Route::currentRouteName()=="report.product.sales")
             <livewire:report.product-sales />
         @endif

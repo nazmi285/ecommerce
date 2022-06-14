@@ -25,17 +25,17 @@
 					    @endif
 						<div class="col-12 mb-3">
 							<label for="photo">Photo</label>
-							<input type="file" class="form-control text-primary" wire:model="form.photo" id="photo">
+							<input type="file" class="form-control" wire:model="form.photo" id="photo">
 							@error('form.photo') <span class="text-danger">{{ $message }}</span> @enderror
 						</div>
 						<div class="col-12 mb-3">
 							<label for="name">Name</label>
-							<input type="text" class="form-control text-primary" wire:model="form.name" id="name" value="{{old('name')}}" placeholder="e.g.Cookies">
+							<input type="text" class="form-control" wire:model="form.name" id="name" value="{{old('name')}}" placeholder="e.g.Cookies">
 							@error('name') <span class="text-danger">{{ $message }}</span> @enderror
 						</div>
 						<div class="col-12 mb-3">
 							<label for="description">Description</label>
-							<textarea class="form-control text-primary" wire:model="form.description" id="description" value="{{old('description')}}" rows="3"></textarea>
+							<textarea class="form-control" wire:model="form.description" id="description" value="{{old('description')}}" rows="3"></textarea>
 							@error('description') <span class="text-danger">{{ $message }}</span> @enderror
 						</div>
 						<nav>
@@ -53,7 +53,7 @@
 							<div class="tab-pane fade {{$form['mode']=='STANDART'?'show active':''}} pt-3" id="nav-standart" role="tabpanel" aria-labelledby="nav-standart-tab">
 								<div class="col-12 mb-3">
 									<div class="input-group">
-									  	<span class="input-group-text" id="price-label">RM</span>
+									  	<span class="input-group-text bg-light" id="price-label">RM</span>
 									  	<input type="text" class="form-control text-end border-start-0"wire:model="form.price" id="price" value="{{old('price')}}" oninput="validate(this)" placeholder="0.00" maxlength="7" aria-describedby="price-label">
 									</div>
 									@error('price') 
@@ -70,7 +70,7 @@
 										</div>
 									</label>
 									<div class="input-group {{$form['promoable']?'':'d-none'}}">
-									  	<span class="input-group-text" id="promo-price-label">RM</span>
+									  	<span class="input-group-text bg-light" id="promo-price-label">RM</span>
 									  	<input type="text" class="form-control text-end border-start-0"wire:model="form.promo_price" id="promo_price" value="{{old('promo_price')}}" oninput="validate(this)" placeholder="0.00" maxlength="7" aria-describedby="promo-price-label">
 									</div>
 									@error('promo_price') <span class="text-danger">{{ $message }}</span> @enderror
@@ -84,14 +84,14 @@
 											<label class="custom-control-label" for="stockable">Check this to manage stock</label>
 										</div>
 									</label>
-									<input type="number" class="form-control text-primary text-end {{$form['stockable']?'':'d-none'}}" wire:model="form.quantity" id="quantity" min="1" value="{{old('quantity')}}" placeholder="0">
+									<input type="number" class="form-control text-end {{$form['stockable']?'':'d-none'}}" wire:model="form.quantity" id="quantity" min="1" value="{{old('quantity')}}" placeholder="0">
 									@error('quantity') <span class="text-danger">{{ $message }}</span> @enderror
 									<div id="quantity" class="form-text">Default availability is Pre-Order</div>
 								</div>
 								<div class="col-12 mb-3">
 									<label for="weight">Set product weight</label>
 									<div class="input-group">
-										<input type="number" class="form-control text-primary border-end-0" min="0.1" step="0.1" wire:model="form.weight" id="weight" value="{{old('weight')}}" placeholder="0" aria-describedby="weight">
+										<input type="number" class="form-control border-end-0" min="0.1" step="0.1" wire:model="form.weight" id="weight" value="{{old('weight')}}" placeholder="0" aria-describedby="weight">
 										<span class="input-group-text bg-light" id="price">KG</span>
 									</div>
 									<div id="weight" class="form-text">Auto calculate delivery fee using EasyParcel.</div>
@@ -105,13 +105,13 @@
 										</div>
 									</label>
 									<div class="input-group mb-2 {{$form['partial_payment']?'':'d-none'}}">
-									  	<span class="input-group-text" id="first-amaun-label">First Payment (RM)</span>
+									  	<span class="input-group-text bg-light" id="first-amaun-label">First Payment (RM)</span>
 									  	<input type="text" class="form-control text-end border-start-0"wire:model="form.first_amaun" id="first_amaun" value="{{old('first_amaun')}}" oninput="validate(this)" placeholder="0.00" maxlength="7" aria-describedby="first-amaun-label">
 									</div>
 									@error('first_amaun') <span class="text-danger">{{ $message }}</span> @enderror
 
 									<div class="input-group {{$form['partial_payment']?'':'d-none'}}">
-									  	<span class="input-group-text" id="last-amaun-label">Last Payment (RM)</span>
+									  	<span class="input-group-text bg-light" id="last-amaun-label">Last Payment (RM)</span>
 									  	<input type="text" class="form-control text-end border-start-0"wire:model="form.last_amaun" id="last_amaun" value="{{old('last_amaun')}}" oninput="validate(this)" placeholder="0.00" maxlength="7" aria-describedby="last-amaun-label">
 									</div>
 									@error('last_amaun') <span class="text-danger">{{ $message }}</span> @enderror
@@ -184,25 +184,60 @@
 					</div>
 
 					<div wire:ignore.self class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-						<div class="modal-dialog modal-dialog-centered">
+						<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-fullscreen-md-down">
 							<div class="modal-content shadow-lg">
 								<div class="modal-header">
 									<h5 class="modal-title" id="exampleModalLabel">Create Variations</h5>
 									<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 								</div>
 								<div class="modal-body">
-									sasa
+									<div class="col-12 mb-3">
+										<label for="variant_one"> Variant Name </label>
+										<input type="text" class="form-control" id="variant_one" min="1" value="{{old('variant_one')}}" placeholder="Variant name">
+									</div>
+									<div class="col-8 mb-3">
+										<div class="input-group mb-3">
+										  	<input type="text" class="form-control rounded me-2" id="price" placeholder="Option 1">
+										  	<button class="btn text-danger rounded">
+										  		<i class="fa-solid fa-trash fa-lg" aria-hidden="true"></i>
+										  	</button>
+										</div>
+										<div class="d-grid">
+											<button class="btn btn-outline-secondary rounded">
+										  		<i class="fa-solid fa-plus fa-lg" aria-hidden="true"></i> Add Option
+										  	</button>
+										</div>
+					                </div>
+									<div class="col-12 mb-3">
+										<label for="variant_one"> Variant Name </label>
+										<input type="text" class="form-control" id="variant_one" min="1" value="{{old('variant_one')}}">
+									</div>
+									<div class="col-8 mb-3">
+										<div class="input-group mb-3">
+										  	<input type="text" class="form-control rounded me-2" id="price" placeholder="Option 1">
+										  	<button class="btn text-danger rounded">
+										  		<i class="fa-solid fa-trash fa-lg" aria-hidden="true"></i>
+										  	</button>
+										</div>
+									</div>
+									<div class="col-6 mb-3">
+										<div class="d-grid">
+											<button class="btn btn-outline-secondary rounded">
+										  		<i class="fa-solid fa-plus fa-lg" aria-hidden="true"></i> Add Option
+										  	</button>
+										</div>
+					                </div>
 								</div>
 								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-									<button type="button" class="btn btn-primary">Save changes</button>
+									<button type="button" class="btn" data-bs-dismiss="modal">Cancel</button>
+									<button type="button" class="btn btn-primary">Save</button>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn" data-bs-dismiss="modal">Close</button>
+					<button type="button" class="btn" data-bs-dismiss="modal">Cancel</button>
 					<button type="submit" class="btn btn-primary">
 						<i class="fas fa-circle-notch fa-spin d-none mr-2" id="icon-processing"></i>
 						Save

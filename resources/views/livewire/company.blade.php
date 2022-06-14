@@ -25,7 +25,7 @@
                                                 <img class="img-fluid" src="https://github.com/mdo.png" width="78px" alt="...">
                                             @endif
                                         @endif
-                                        <input type="file" class="form-control mt-3" wire:model="photo" id="photo">
+                                        <input type="file" class="form-control mt-3 @error('photo') is-invalid @enderror" wire:model="photo" id="photo">
                                         @error('photo') <span class="text-danger">{{ $message }}</span> @enderror
                                     </div>
                                     <div class="mb-3">
@@ -44,9 +44,9 @@
                                         @error('contact_no') <span class="error">{{ $message }}</span> @enderror
                                     </div>
                                     <div class="mb-3">
-                                        <label for="address_1" class="form-label">Company Address</label>
-                                        <textarea class="form-control mb-3 @error('address_1') is-invalid @enderror" rows="3" wire:model="form.address_1" id="address_1"></textarea>
-                                        @error('address_1') <span class="error">{{ $message }}</span> @enderror
+                                        <label for="address" class="form-label">Company Address</label>
+                                        <textarea class="form-control mb-3 @error('address') is-invalid @enderror" rows="3" wire:model="form.address" id="address"></textarea>
+                                        @error('address') <span class="error">{{ $message }}</span> @enderror
 
                                         {{-- <input type="text" class="form-control mb-3 @error('address_1') is-invalid @enderror" wire:model="form.address_1" id="address_1" placeholder="Address 1"> --}}
 

@@ -4,7 +4,7 @@
     @endsection
     <div class="row justify-content-center mb-5">
         <div class="col-12 col-sm-8 col-md-8 col-lg-8">
-            <div class="card  mb-3" data-bs-toggle="modal" data-bs-target="#orderDetailsModal_20">
+            <div class="card border-0 mb-2" data-bs-toggle="modal" data-bs-target="#orderDetailsModal_20">
                 <div class="card-body">
                     <div class="row">
                         <div class="col-8">
@@ -27,7 +27,7 @@
 
                 </div>
             </div>
-            <div class="card  mb-3" data-bs-toggle="modal" data-bs-target="#orderDetailsModal_20">
+            <div class="card border-0 mb-2" data-bs-toggle="modal" data-bs-target="#orderDetailsModal_20">
                 <div class="card-body">
                     <div class="row">
                         <div class="col-8">
@@ -37,7 +37,7 @@
                                 </h5>
                             </div>
                             <p class="card-text">
-                                <small>Allow your customer to online trasfer manualy.</small>
+                                <small>Quick and easy online payment solution.</small>
                             </p>
                         </div>
                         <div class="col-4">
@@ -50,7 +50,7 @@
 
                 </div>
             </div>
-            <div class="card  mb-3" data-bs-toggle="modal" data-bs-target="#orderDetailsModal_20">
+            <div class="card border-0 mb-2" data-bs-toggle="modal" data-bs-target="#orderDetailsModal_20">
                 <div class="card-body">
                     <div class="row">
                         <div class="col-8">
@@ -60,7 +60,7 @@
                                 </h5>
                             </div>
                             <p class="card-text">
-                                <small>Allow your customer to online trasfer manualy.</small>
+                                <small>Fair payment platform for E-commerce store</small>
                             </p>
                         </div>
                         <div class="col-4">
