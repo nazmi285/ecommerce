@@ -15,7 +15,6 @@ class CreatePaymentsTable extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('merchant_id')->nullable()->unsigned();
             $table->integer('paymentable_id')->nullable();
             $table->string('paymentable_type')->nullable();
             $table->string('payment_no',20)->nullable()->unique();
@@ -27,8 +26,6 @@ class CreatePaymentsTable extends Migration
             $table->datetime('paid_at')->nullable();
             $table->timestamps();
             $table->softDeletes();
-            // foreign keys
-            $table->foreign('merchant_id')->references('id')->on('merchants');
         });
     }
 
