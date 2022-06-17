@@ -1,3 +1,84 @@
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-interval="false">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+    	<div class="card card-body h-100">
+	    	<div class="d-flex justify-content-center">
+		    	<form>
+		    		<div class="mb-3">
+		    			<label for="exampleInputEmail1" class="form-label">Email address</label>
+		    			<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+		    			<div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+		    		</div>
+		    		<div class="mb-3">
+		    			<label for="exampleInputPassword1" class="form-label">Password</label>
+		    			<input type="password" class="form-control" id="exampleInputPassword1">
+		    		</div>
+		    		<div class="mb-3 form-check">
+		    			<input type="checkbox" class="form-check-input" id="exampleCheck1">
+		    			<label class="form-check-label" for="exampleCheck1">Check me out</label>
+		    		</div>
+		    		<button type="submit" class="btn btn-primary">Submit</button>
+		    	</form>
+		    </div>
+		</div>
+    </div>
+    <div class="carousel-item">
+    	<div class="card card-body h-100">
+	    	<div class="d-flex justify-content-center">
+		    	<form>
+		    		<fieldset disabled>
+		    			<legend>Disabled fieldset example</legend>
+		    			<div class="mb-3">
+		    				<label for="disabledTextInput" class="form-label">Disabled input</label>
+		    				<input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
+		    			</div>
+		    			<div class="mb-3">
+		    				<label for="disabledSelect" class="form-label">Disabled select menu</label>
+		    				<select id="disabledSelect" class="form-select">
+		    					<option>Disabled select</option>
+		    				</select>
+		    			</div>
+		    			<div class="mb-3">
+		    				<div class="form-check">
+		    					<input class="form-check-input" type="checkbox" id="disabledFieldsetCheck" disabled>
+		    					<label class="form-check-label" for="disabledFieldsetCheck">
+		    						Can't check this
+		    					</label>
+		    				</div>
+		    			</div>
+		    			<button type="submit" class="btn btn-primary">Submit</button>
+		    		</fieldset>
+		    	</form>
+		    </div>
+		</div>
+    </div>
+    <div class="carousel-item">
+    	<div class="card card-body h-100">
+	    	<div class="d-flex justify-content-center">
+				<div class="form-floating mb-3">
+				<input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+				<label for="floatingInput">Email address</label>
+				</div>
+				<div class="form-floating">
+				<input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+				<label for="floatingPassword">Password</label>
+				</div>
+			</div>
+		</div>
+    </div>
+  </div>
+  <button class="btn btn-primary" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    	Previous
+  </button>
+  <button class="btn btn-primary" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    Next
+  </button>
+</div>
 <div class="col-md-8 mb-3">
 	<style type="text/css">
 	    .nav-underline > li > a.active,

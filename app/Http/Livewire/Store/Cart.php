@@ -12,11 +12,14 @@ class Cart extends Component
     public $selectAll = false;
     public $selectItem = [];
     public $cartItems = [];
+    public $total = 0;
 
     protected $listeners = ['refreshComponent' => '$refresh'];
 
     public function mount()
     {
+        $this->total = array_sum(array_column(session()->get('cartItems'),'price'));
+        
         if(session()->has('cartItems')){
             $this->cartItems = session()->get('cartItems');
         }

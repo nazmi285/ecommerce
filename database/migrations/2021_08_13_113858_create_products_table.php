@@ -15,6 +15,7 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+            $table->integer('merchant_id')->nullable()->unsigned();
             $table->string('product_no',20)->nullable()->unique();
             $table->string('name')->nullable();
             $table->integer('type')->nullable();
@@ -28,6 +29,8 @@ class CreateProductsTable extends Migration
             $table->integer('is_publish')->nullable()->default(1);
             $table->timestamps();
             $table->softDeletes();
+            // foreign keys
+            $table->foreign('merchant_id')->references('id')->on('merchants');
         });
     }
 

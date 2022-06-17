@@ -21,6 +21,8 @@ class CreateDomainsTable extends Migration
             $table->string("status",20)->nullable();
             $table->timestamps();
             $table->softDeletes();
+            // foreign keys
+            $table->foreign('merchant_id')->references('id')->on('merchants');
         });
     }
 

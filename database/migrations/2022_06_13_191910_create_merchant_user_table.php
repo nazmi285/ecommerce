@@ -16,6 +16,7 @@ class CreateMerchantUserTable extends Migration
         Schema::create('merchant_user', function (Blueprint $table) {
             $table->unsignedBigInteger('merchant_id');
             $table->unsignedBigInteger('user_id');
+            $table->integer('is_active');
             // foreign keys
             $table->foreign('merchant_id')->references('id')->on('merchants');
             $table->foreign('user_id')->references('id')->on('users');

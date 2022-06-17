@@ -15,6 +15,7 @@ class CreateCustomersTable extends Migration
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
+            $table->integer('merchant_id')->nullable()->unsigned();
             $table->string('google_id')->nullable();
             $table->string('name');
             $table->string('email')->unique();
@@ -32,6 +33,8 @@ class CreateCustomersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
+            // foreign keys
+            $table->foreign('merchant_id')->references('id')->on('merchants');
         });
     }
 

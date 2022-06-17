@@ -27,4 +27,24 @@ class Product extends Model
             static::productNo();
         }
     }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($query) {
+            // $query->created_by = auth()->id();
+            // $query->updated_by = auth()->id();
+            $query->merchant_id = auth()->user()->merchant->first()->id;
+        });
+
+        // static::saving(function ($query) {
+        //     $query->updated_by = auth()->id();
+        // });
+    }
+
+    public function merchant()
+    {
+        return $this->belongsTo(Merchant::class);
+    }
 }

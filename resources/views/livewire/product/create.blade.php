@@ -198,12 +198,12 @@
 									<div class="col-8 mb-3">
 										<div class="input-group mb-3">
 										  	<input type="text" class="form-control rounded me-2" id="price" placeholder="Option 1">
-										  	<button class="btn text-danger rounded">
+										  	<button type="button" class="btn text-danger rounded">
 										  		<i class="fa-solid fa-trash fa-lg" aria-hidden="true"></i>
 										  	</button>
 										</div>
 										<div class="d-grid">
-											<button class="btn btn-outline-secondary rounded">
+											<button type="button" class="btn btn-outline-secondary rounded">
 										  		<i class="fa-solid fa-plus fa-lg" aria-hidden="true"></i> Add Option
 										  	</button>
 										</div>
@@ -215,14 +215,12 @@
 									<div class="col-8 mb-3">
 										<div class="input-group mb-3">
 										  	<input type="text" class="form-control rounded me-2" id="price" placeholder="Option 1">
-										  	<button class="btn text-danger rounded">
+										  	<button type="button" class="btn text-danger rounded">
 										  		<i class="fa-solid fa-trash fa-lg" aria-hidden="true"></i>
 										  	</button>
 										</div>
-									</div>
-									<div class="col-6 mb-3">
 										<div class="d-grid">
-											<button class="btn btn-outline-secondary rounded">
+											<button type="button" class="btn btn-outline-secondary rounded">
 										  		<i class="fa-solid fa-plus fa-lg" aria-hidden="true"></i> Add Option
 										  	</button>
 										</div>

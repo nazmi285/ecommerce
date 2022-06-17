@@ -31,11 +31,11 @@
 </style>
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-4">
+        <div class="col-md-6 col-lg-4">
             <form method="POST" action="{{ route('login') }}">
                 @csrf
-                <div class="d-block text-center">
-                    <img class="mb-4" src="{{asset('images/bootstrap-logo.svg')}}" alt="" width="58" height="48">
+                <div class="d-block text-center mt-5">
+                    {{-- <img class="mb-4" src="{{asset('images/bootstrap-logo.svg')}}" alt="" width="58" height="48"> --}}
                     <h5 class="mb-3 fw-normal">Please sign in</h5>
                 </div>
 

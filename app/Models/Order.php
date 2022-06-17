@@ -25,6 +25,11 @@ class Order extends Model
         }
     }
 
+    public function merchant()
+    {
+        return $this->belongsTo(Merchant::class);
+    }
+
     public function payments()
     {
         return $this->morphMany(Payment::class, 'paymentable');

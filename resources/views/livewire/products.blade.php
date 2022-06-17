@@ -2,7 +2,12 @@
 	@section('title')
 	<h4 class="fw-bold p-2 mb-0">Products</h4>
 	@endsection
-
+	<style>
+		.dropdown-menu-reposition{
+			top:-22px!important;
+			right:2px !important;
+		}
+	</style>
 	<nav class="navbar fixed-bottom navbar-light" style="bottom:55px;">
 		<div class="container">
 			<div class="navbar-brand">
@@ -20,7 +25,7 @@
 				<div class="input-group">
 				  	<input type="search" class="form-control bg-white border-0" wire:model="keyword" id="keyword" placeholder="Search Product" >
 				  	<span class="btn bg-white rounded-end"><i class="fas fa-search"></i></span>
-				  	<button type="button" class="btn bg-white rounded float-end ms-2" data-bs-toggle="modal" data-bs-target="#filterModal"><i class="fa-solid fa-filter"></i></button>
+				  	<button type="button" class="btn bg-white rounded float-end ms-2" disabled data-bs-toggle="modal" data-bs-target="#filterModal"><i class="fa-solid fa-filter"></i></button>
 				</div>
 			</div>
 
@@ -48,7 +53,7 @@
 		    						<button type="button" class="btn dropdown-toggle" id="btnMoreAction_{{$key}}" data-bs-toggle="dropdown" aria-expanded="false">
 		    							<i class="fas fa-lg fa-ellipsis-h"></i>
 		    						</button>
-		    						<ul class="dropdown-menu shadow-lg border-0" aria-labelledby="btnMoreAction_{{$key}}">
+		    						<ul class="dropdown-menu dropdown-menu-reposition shadow-lg border-0" aria-labelledby="btnMoreAction_{{$key}}">
 		    							<li><a class="dropdown-item" href="#">Sales Report</a></li>
 		    							<li><a class="dropdown-item" href="#">Stock</a></li>
 		    							<li><a class="dropdown-item" href="#">Something else here</a></li>
@@ -63,11 +68,11 @@
 				<livewire:product.update :product="$product" :wire:key="$product->id">
 	    	@empty
 			    <div class="col-12 col-md-4 col-lg-4">
-			    	<a href="{{route('product.create')}}">
+			    	<a href="#" data-bs-toggle="modal" data-bs-target="#createModal">
 						<div class="card rounded-3 alert-primary h-100">
 							<div class="card-body my-5 position-relative">
 								<div class="position-absolute top-50 start-50 translate-middle text-center">
-									<i class="fa fa-plus" aria-hidden="true"></i><br> Add New Product
+									<i class="fa fa-plus" aria-hidden="true"></i><br> Let's create a new product
 								</div>
 							</div>
 						</div>
