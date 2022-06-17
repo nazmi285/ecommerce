@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Admin;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class AdminSeeder extends Seeder
 {
@@ -15,7 +17,7 @@ class AdminSeeder extends Seeder
     {
         $password = 'admin@email.com';
 
-        $admin = \App\Admin::firstOrCreate(
+        $admin = Admin::firstOrCreate(
             ['email' => 'admin@email.com'],
             [   'name' => 'Superadmin', 
                 'password' => Hash::make($password),
