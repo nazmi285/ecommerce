@@ -19,8 +19,8 @@
                                         @if (isset($photo))
                                             <img class="img-fluid " src="{{ $photo->temporaryUrl() }}" width="78px" alt="...">
                                         @else
-                                            @if(isset($merchant->image_url))
-                                                <img class="img-fluid" src="{{asset('storage/'.$user->image_url)}}" width="78px" alt="...">
+                                            @if(isset($form['image_url']))
+                                                <img class="img-fluid" src="{{asset('storage/'.$form['image_url'])}}" width="78px" alt="...">
                                             @else
                                                 <img class="img-fluid" src="https://github.com/mdo.png" width="78px" alt="...">
                                             @endif

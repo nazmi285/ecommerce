@@ -15,12 +15,29 @@ class Company extends Component
 
     public $form,$photo;
 
+    public function updatedPhoto()
+    {
+        $this->validate([
+            'photo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:3072',
+        ]);
+    }
+
     public function update()
     {
+        if($this->photo){
+            $image_url = $this->photo->store('product/photos','public');
+        }
 
-        $this->user->image_url = $this->photo->store('product/photos','public');
         $merchant = Auth::user()->merchants()->first();
         $merchant->name = $this->form['name'];
+        $merchant->email = $this->form['email'];
+        $merchant->contact_no = $this->form['contact_no'];
+        $merchant->address = $this->form['address'];
+        $merchant->city = $this->form['city'];
+        $merchant->postcode = $this->form['postcode'];
+        $merchant->state = $this->form['state'];
+        $merchant->country = $this->form['country'];
+        $merchant->image_url = isset($image_url)?$image_url:null;
         if($merchant->save()){
             // Auth::user()->merchants()->attach($merchant->id);
         }
@@ -38,18 +55,12 @@ class Company extends Component
             'postcode'=>$merchant->postcode,
             'state'=>$merchant->state,
             'country'=>$merchant->country,
+            'image_url'=>$merchant->image_url,
         ]);
     }
 
     public function render()
     {
         return view('livewire.company');
-    }
-
-    public function updatedPhoto()
-    {
-        $this->validate([
-            'photo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:3072',
-        ]);
     }
 }

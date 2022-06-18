@@ -22,7 +22,7 @@ class Profile extends Component
 	public function update()
 	{
 		$this->user = Auth::user();
-		// $this->user->image_url = $this->photo->store('product/photos','public');
+		$this->user->image_url = $this->photo->store('product/photos','public');
 		$this->user->name = $this->form['name'];
 		$this->user->save();
 	}

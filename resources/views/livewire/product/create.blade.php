@@ -15,11 +15,11 @@
 
 					<div class="form-group row justify-content-center">
 						@if (isset($form['photo']))
-					        <div class="col-4 float-start mb-3">
+					        <div class="col float-start mb-3">
 						        <img class="img-fluid" src="{{ $form['photo']->temporaryUrl() }}">
 						    </div>
 						@else
-							<div class="col-4 float-start mb-3">
+							<div class="col float-start mb-3">
 						        <img class="img-fluid" src="{{ asset('images/items/item.jpg') }}">
 						    </div>
 					    @endif
