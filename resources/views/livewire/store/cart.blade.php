@@ -99,6 +99,27 @@
         </div>
     </section>
     <section class="section-payment">
+        <div class="d-grid gap-2">
+            <div class="btn-group mb-4" role="group" aria-label="Basic example">
+                {{-- <button type="button" class="btn btn-outline-primary text-start active rounded-3 border-0 me-2">
+                    <i class="fa-solid fa-credit-card me-2"></i>
+                    <p>Billplz</p>
+                </button> --}}
+                <button type="button" class="btn btn-outline-primary text-start rounded-3 border-0 me-2">
+                    <i class="fa-solid fa-credit-card me-2"></i>
+                    <p>Toyyibpay</p>
+                </button>
+                <button type="button" class="btn btn-outline-primary text-start rounded-3 border-0 me-2">
+                    <i class="fa-solid fa-qrcode me-2"></i> 
+                    <p>Duit Now</p>
+                </button>
+                <button type="button" class="btn btn-outline-primary text-start rounded-3 border-0 ">
+                    <i class="fa-solid fa-building-columns me-2"></i> 
+                    <p>Online Transfer</p>
+                </button>
+            </div>
+        </div>
+
         <div class="card rounded-3 mb-2">
             <div class="card-body">
                 <div class="form-check">

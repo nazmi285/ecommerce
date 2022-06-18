@@ -4,20 +4,7 @@
     @endsection
 
     <div class="row justify-content-center mb-2">
-        <div class="col-12 col-sm-8 col-md-8 col-lg-8" style="height: 200px;">
-            <div class="row" style="height: 200px;">
-                <div class="col-1"><div class="border-bottom bg-primary" style="position:sticky ;bottom: 0;height: 100%;"></div>Col</div>
-                <div class="col-1"><div class="border-bottom bg-primary" style="position:sticky ;bottom: 0;height: 100%;"></div>Col</div>
-                <div class="col-1"><div class="border-bottom bg-primary" style="position:sticky ;bottom: 0;height: 10%;"></div>Col</div>
-                <div class="col-1"><div class="border-bottom bg-primary" style="position:sticky ;bottom: 0;height: 50%;"></div>Col</div>
-                <div class="col-1"><div class="border-bottom bg-primary" style="position:sticky ;bottom: 0;height: 100%;"></div>Col</div>
-                <div class="col-1"><div class="border-bottom bg-primary" style="position:sticky ;bottom: 0;height: 100%;"></div>Col</div>
-                <div class="col-1"><div class="border-bottom bg-primary" style="position:sticky ;bottom: 0;height: 50%;"></div>Col</div>
-            </div>
-        </div>
-
         <div class="col-12 col-sm-8 col-md-8 col-lg-8">
-
             <div class="py-5 ps-3">
                 <small class="text-muted">28 Aug 2021</small>
                 <h4 class="fw-bold">Hello, {{Auth::user()->name}}</h4>

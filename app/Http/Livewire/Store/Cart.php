@@ -18,9 +18,10 @@ class Cart extends Component
 
     public function mount()
     {
-        $this->total = array_sum(array_column(session()->get('cartItems'),'price'));
+        
         
         if(session()->has('cartItems')){
+            $this->total = array_sum(array_column(session()->get('cartItems'),'price'));
             $this->cartItems = session()->get('cartItems');
         }
     }

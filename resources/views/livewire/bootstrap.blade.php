@@ -284,8 +284,53 @@
 		</div>
 	</div>
 </div>
+<div class="container mb-5">
+	<div class="row justify-content-center">
+
+		<div class="col-md-8 mb-3">
 
 
+			<div class="progress progress-vertical border-bottom border-3 mb-3"> 
+				<div class="progress-bar" role="progressbar" style="height: 25%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">25%</div>
+			</div>
+			<div class="progress progress-vertical border-bottom border-3 mb-3">
+				<div class="progress-bar" role="progressbar" style="height: 40%" >40%</div>
+			</div>
+			<div class="progress progress-vertical border-bottom border-3 mb-3">
+				<div class="progress-bar" role="progressbar" style="height: 30%" >30%</div>
+			</div>
+			<div class="progress progress-vertical border-bottom border-3 mb-3">
+				<div class="progress-bar" role="progressbar" style="height: 20%" >20%</div>
+			</div>
+			<div class="progress progress-vertical border-bottom border-3 mb-3">
+				<div class="progress-bar" role="progressbar" style="height: 9%" >9%</div>
+			</div>
+			<div class="progress progress-vertical border-bottom border-3 mb-3">
+				<div class="progress-bar" role="progressbar" style="height: 9%" >9%</div>
+			</div>
+			<div class="progress progress-vertical border-bottom border-3 mb-3">
+				<div class="progress-bar" role="progressbar" style="height: 80%" >80%</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="container mb-5">
+	<div class="row justify-content-center">
+		<div class="col-12 col-sm-8 col-md-8 col-lg-8" style="height: 200px;">
+            <div class="row" style="height: 200px;">
+                <div class="col-1"><div class="border-bottom bg-primary" style="height: 100%;"></div>Col</div>
+                <div class="col-1"><div class="border-bottom bg-primary" style="height: 100%;"></div>Col</div>
+                <div class="col-1"><div class="border-bottom bg-primary" style="height: 10%;"></div>Col</div>
+                <div class="col-1"><div class="border-bottom bg-primary" style="height: 50%;"></div>Col</div>
+                <div class="col-1"><div class="border-bottom bg-primary" style="height: 100%;"></div>Col</div>
+                <div class="col-1"><div class="border-bottom bg-primary" style="height: 100%;"></div>Col</div>
+                <div class="col-1"><div class="border-bottom bg-primary" style="height: 50%;"></div>Col</div>
+            </div>
+        </div>
+	</div>
+</div>
 <div class="container">
 	<div class="row justify-content-center">
 		<div class="col-md-8 mb-3">
