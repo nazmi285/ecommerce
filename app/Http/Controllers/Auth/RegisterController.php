@@ -86,7 +86,7 @@ class RegisterController extends Controller
                 'is_active' => 1,
             ],true);
 
-            $user->syncRoles('Owner');
+            // $user->syncRoles('Owner');
         }
 
         return $user;
